@@ -1,0 +1,23 @@
+header {
+  z-index: 60000000;
+  position: absolute;
+  width: 100%;
+  #logo {
+    width: 100px;
+  }
+
+  span.flags {
+    button {
+      img {
+        width: 30px;
+      }
+      &:focus {
+        outline: 0;
+        border: 0;
+      }
+    }
+  }
+}
+
+
+

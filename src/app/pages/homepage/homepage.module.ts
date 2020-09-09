@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HomepageComponent } from './homepage/homepage.component';
+import {SharedModule} from '../../shared/shared.module';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
+import {RouterModule} from '@angular/router';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -8,13 +11,12 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [],
+  declarations: [HomepageComponent],
   imports: [
     CommonModule,
-    SwiperModule
-  ],
-  exports: [
-    SwiperModule
+    SharedModule,
+    SwiperModule,
+    RouterModule
   ],
   providers: [
     {
@@ -23,4 +25,4 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     }
   ]
 })
-export class SharedModule { }
+export class HomepageModule { }
