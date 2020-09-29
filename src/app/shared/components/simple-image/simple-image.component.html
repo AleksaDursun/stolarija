@@ -1,0 +1,16 @@
+<section class="container">
+  <div class="row py-3 py-lg-5">
+    <div class="col-12 col-lg-5" *ngIf="imagePos === 'left'">
+      <div class="img-div w-100 h-100 position-relative"
+           [ngStyle]="{'background-image': 'url(' + imageSrc + ')'}"></div>
+    </div>
+    <div class="col-12 col-lg-7 d-flex flex-column align-items-center justify-content-center">
+      <h3 class="w-100 font-weight-bold">{{title}}</h3>
+      <p>{{text}}</p>
+    </div>
+    <div class="col-12 col-lg-5" *ngIf="imagePos !== 'left' ">
+      <div class="img-div w-100 h-100 position-relative"
+           [ngStyle]="{'background-image': 'url(' + imageSrc + ')'}"></div>
+    </div>
+  </div>
+</section>

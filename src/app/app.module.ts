@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {RouterModule} from '@angular/router';
+import {HomepageModule} from './pages/homepage/homepage.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {RouterModule} from '@angular/router';
     CoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    HomepageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

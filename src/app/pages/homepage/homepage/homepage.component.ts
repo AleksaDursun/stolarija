@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
 
 @Component({
@@ -6,22 +6,14 @@ import {SwiperConfigInterface} from 'ngx-swiper-wrapper';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements AfterViewInit {
 
-  config: SwiperConfigInterface = {};
 
   constructor() {
-    this.config = {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      loop: true,
-      autoplay: {
-        delay: 3000
-      }
-    };
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    $('#bannerCarousel').carousel({wrap: false, pause: false, interval: 1500});
   }
 
 }

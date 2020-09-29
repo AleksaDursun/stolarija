@@ -34,7 +34,7 @@ $umjetnost-u-drvetu-theme: mat-light-theme((
 @include angular-material-theme($umjetnost-u-drvetu-theme);
 
 /* You can add global styles to this file, and also import other style files */
-
+@import "app/variables";
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -44,7 +44,7 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: white;
+  color: $dark;
 }
 
 img {

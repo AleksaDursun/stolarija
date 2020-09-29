@@ -1,3 +1,4 @@
+@import "src/app/variables";
 .banner-section {
   max-height: 100vh;
   img {
@@ -11,4 +12,18 @@
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 10;
+}
+
+.start-button-hover {
+
+  transition: all .3s ease-in-out;
+  &:hover {
+    width: 100px;
+    height: 100px;
+    border-radius: 100rem;
+    color: $danger;
+    font-weight: bold;
+  }
+
 }
