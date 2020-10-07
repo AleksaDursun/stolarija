@@ -7,7 +7,7 @@ import {ROUTES} from './app.routing';
 
 @NgModule({
   imports: [RouterModule.forRoot(ROUTES, {
-    scrollPositionRestoration: 'disabled',
+    scrollPositionRestoration: 'enabled',
     anchorScrolling: 'enabled'
   })],
   exports: [RouterModule]

@@ -51,6 +51,11 @@ img {
   max-width: 100%;
 }
 
+body.modal-open {
+  overflow: visible;
+  padding-right: 0!important;
+}
+
 .bg-light {
   background-color: $light !important;
 }
