@@ -1,5 +1,3 @@
-import {HomepageComponent} from './pages/homepage/homepage/homepage.component';
-
 export const ROUTES = [
   {
     path: '',
@@ -8,6 +6,10 @@ export const ROUTES = [
   },
   {
     path: 'home',
-    component: HomepageComponent
-  }
+    loadChildren: () => import('./pages/homepage/homepage.module').then(m => m.HomepageModule)
+  },
+  {
+    path: 'category',
+    loadChildren: () => import('./pages/category/category.module').then(m => m.CategoryModule)
+  },
 ];

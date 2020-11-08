@@ -1,5 +1,5 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark">
+<header class="{{headerClass}}">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <h1 id="logo">
       <a class="navbar-brand" href="#">
         <img src="/assets/images/logo.png" loading="lazy">
@@ -11,14 +11,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link mx-4" routerLink="/home" i18n>Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link mx-4" routerLink="/home" routerLinkActive="text-black" i18n>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-4"  routerLink="/home" i18n>Products</a>
+          <a class="nav-link mx-4"  routerLink="/home" routerLinkActive="text-black" i18n>Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-4"  routerLink="/home" i18n>About</a>
+          <a class="nav-link mx-4"  routerLink="/home" routerLinkActive="text-black" i18n>About</a>
         </li>
       </ul>
       <span class="navbar-text flags" i18n>

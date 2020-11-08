@@ -6,6 +6,7 @@ import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wra
 import {RouterModule} from '@angular/router';
 import { SwiperComponent } from './homepage/swiper/swiper.component';
 import { CategoriesAndProductsComponent } from './homepage/categories-and-products/categories-and-products.component';
+import {ROUTES} from './home.routing';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -18,7 +19,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CommonModule,
     SharedModule,
     SwiperModule,
-    RouterModule
+    RouterModule.forChild(ROUTES)
   ],
   providers: [
     {

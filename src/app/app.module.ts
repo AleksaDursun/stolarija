@@ -22,7 +22,6 @@ import {HomepageModule} from './pages/homepage/homepage.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
-    HomepageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

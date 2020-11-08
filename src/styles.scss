@@ -45,6 +45,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: $dark;
+  background: url("/assets/images/category-banner.jpg");
 }
 
 img {
@@ -58,4 +59,19 @@ body.modal-open {
 
 .bg-light {
   background-color: $light !important;
+}
+
+.shadow-light {
+  -webkit-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
+}
+
+.boxed {
+  background-color: $light;
+  //border: 10px solid #d1d1d1;
+  color: $dark;
+  -webkit-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
 }
