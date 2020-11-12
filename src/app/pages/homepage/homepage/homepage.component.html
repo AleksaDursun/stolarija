@@ -1,21 +1,35 @@
-<section class="banner-section position-relative">
-  <div id="bannerCarousel" class="carousel slide  carousel-fade" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/assets/images/banner/1.jpeg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/assets/images/banner/2.jpeg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-  </div>
-  <div class="overlay position-absolute d-flex align-items-center justify-content-center">
-    <a href="/home#firstSection"
-       class="btn btn-dark start-button-hover d-flex align-items-center justify-content-center"><span>START</span></a>
-  </div>
-</section>
-<a name="firstSection"></a>
-<app-simple-image></app-simple-image>
-<app-swiper></app-swiper>
+<div class="homepage-swiper">
+  <app-swiper></app-swiper>
+</div>
 <app-simple-image [imagePos]="'left'"></app-simple-image>
+<section class="banner-section position-relative container">
+ <div class="row pt-5">
+ <div class="col-12 col-xl-6 mb-3 px-0 px-xl-3 mb-xl-0">
+   <div class="w-100 h-100 bg" style="background-image: url(/assets/images/banner/1.jpeg)">
+
+   </div>
+ </div>
+   <div class="col-12 col-xl-6 px-2 d-flex align-items-center flex-column justify-content-center">
+     <section>
+       <div class="row">
+         <div class=" col-6 px-2 d-flex align-items-center flex-column justify-content-center">
+           <img src="/assets/images/banner/1.jpeg" alt="">
+         </div>
+         <div class="col-6 px-2 d-flex align-items-center flex-column justify-content-center">
+           <img src="/assets/images/banner/1.jpeg" alt="">
+         </div>
+       </div>
+       <div class="row pt-3">
+         <div class="col-6 px-2 d-flex align-items-center flex-column justify-content-center">
+           <img src="/assets/images/banner/1.jpeg" alt="">
+         </div>
+         <div class="col-6 px-2 d-flex align-items-center flex-column justify-content-center">
+           <img src="/assets/images/banner/1.jpeg" alt="">
+         </div>
+       </div>
+     </section>
+   </div>
+ <div class="col-12 col-xl-6"></div>
+ </div>
+</section>
 <app-categories-and-products></app-categories-and-products>

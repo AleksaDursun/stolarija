@@ -18,10 +18,14 @@ export class HeaderComponent {
 
   determineClass(): void {
     this.router.events.subscribe(e => {
-      if (this.router.url === '' || this.router.url === '/home') {
-        this.headerClass = 'no-background';
-      } else {
+      if (window.innerWidth < 991 && window.outerWidth < 991) {
         this.headerClass = 'background shadow-light';
+      } else {
+        if (this.router.url === '' || this.router.url === '/home') {
+          this.headerClass = 'no-background';
+        } else {
+          this.headerClass = 'background shadow-light';
+        }
       }
     });
   }

@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -40,12 +39,18 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: $dark;
-  background: url("/assets/images/category-banner.jpg");
+  background: url("/assets/images/wood-background-v1.jpg");
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
 }
 
 img {
@@ -54,7 +59,7 @@ img {
 
 body.modal-open {
   overflow: visible;
-  padding-right: 0!important;
+  padding-right: 0 !important;
 }
 
 .bg-light {
@@ -62,16 +67,16 @@ body.modal-open {
 }
 
 .shadow-light {
-  -webkit-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.5);
 }
 
 .boxed {
   background-color: $light;
   //border: 10px solid #d1d1d1;
   color: $dark;
-  -webkit-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 33px 0px rgba(0, 0, 0, 0.5);
 }

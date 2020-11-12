@@ -18,6 +18,8 @@ export class SwiperComponent implements OnInit {
     this.config = {
       loop: true,
       slidesPerView: 2,
+      spaceBetween: 20,
+      mousewheel: true,
       autoplay: {
         delay: 3000,
       },
@@ -29,10 +31,10 @@ export class SwiperComponent implements OnInit {
       },
       breakpoints: {
         991: {
-          slidesPerView: 3,
+          slidesPerView: 2,
         },
         1700: {
-          slidesPerView: 4
+          slidesPerView: 2
         }
       }
     };

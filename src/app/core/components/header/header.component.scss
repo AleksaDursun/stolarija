@@ -21,11 +21,13 @@ header {
       }
     }
   }
+
 }
 
 
 .no-background {
   background-color: transparent;
+  color: white!important;
 }
 
 .background {
@@ -34,3 +36,14 @@ header {
   border: 10px solid #d1d1d1;
 }
 
+.search {
+  .input-group-append {
+    span {
+      border-radius: 0 50rem 50rem 0;
+    }
+  }
+
+  .form-control {
+    border-radius: 50rem 0 0 50rem;
+  }
+}
