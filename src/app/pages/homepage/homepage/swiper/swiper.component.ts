@@ -17,7 +17,7 @@ export class SwiperComponent implements OnInit {
   ngOnInit(): void {
     this.config = {
       loop: true,
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 20,
       mousewheel: true,
       autoplay: {
