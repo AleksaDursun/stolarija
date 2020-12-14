@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "umjetnost-u-drvetu": {
+      "hosting": {
+        "umjetnost-u-drvetu": [
+          "umjetnost-u-drvetu"
+        ]
+      }
+    }
+  }
+}

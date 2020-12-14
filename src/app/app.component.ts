@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ApiService} from './shared/services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'umjetnost-u-drvetu';
+
+  constructor(
+    private api: ApiService
+  ) {
+    this.getCategoriesAndProducts();
+  }
+
+
+  getCategoriesAndProducts(): void {
+    this.api.getAll().valueChanges().subscribe(data => {
+      console.log(data);
+    });
+  }
+
 }

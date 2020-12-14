@@ -121,6 +121,10 @@
               "devServerTarget": "umjetnost-u-drvetu:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

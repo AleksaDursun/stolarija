@@ -8,7 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {RouterModule} from '@angular/router';
-import {HomepageModule} from './pages/homepage/homepage.module';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {HomepageModule} from './pages/homepage/homepage.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
+    AngularFireModule.initializeApp(environment.FIREBASE),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
