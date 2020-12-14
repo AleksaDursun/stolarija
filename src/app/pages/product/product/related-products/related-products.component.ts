@@ -10,26 +10,7 @@ import {Product} from '../../../../shared/dataModels/product.interface';
 export class RelatedProductsComponent implements OnInit {
 
   config: SwiperConfigInterface;
-  @Input() products: Product[] = [
-    {
-      image: '/assets/images/banner/1.jpeg'
-    },
-    {
-      image: '/assets/images/banner/2.jpeg'
-    },
-    {
-      image: '/assets/images/table.jpg'
-    },
-    {
-      image: '/assets/images/banner/1.jpeg'
-    },
-    {
-      image: '/assets/images/banner/2.jpeg'
-    },
-    {
-      image: '/assets/images/table.jpg'
-    },
-  ];
+  @Input() products: Product[];
 
   constructor() { }
 

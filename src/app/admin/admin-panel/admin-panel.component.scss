@@ -1,0 +1,32 @@
+@import "src/app/variables";
+section {
+  padding-top: 125px;
+  div.row {
+    background-color: white;
+  }
+}
+
+.col-3 {
+  border-right: 1px solid $dark;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 15px;
+      &:hover {
+        background-color: #0d8df6;
+        a {
+          color: white!important;
+        }
+      }
+      a {
+        color: $dark;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

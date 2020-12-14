@@ -1,11 +1,10 @@
 import {Product} from './product.interface';
+import {Name} from './name.interface';
+import {Description} from './description.interface';
 
 export interface Category {
-  name_sr?: string;
-  name_en?: string;
-  name_de?: string;
-  description_sr?: string;
-  description_en?: string;
-  description_de?: string;
+  name: string;
+  title: Name;
+  description: Description;
   products: Product[];
 }

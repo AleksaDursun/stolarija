@@ -8,26 +8,7 @@ import {Product} from '../../../../shared/dataModels/product.interface';
 })
 export class CategoriesAndProductsComponent implements OnInit {
 
-  @Input() products: Product[] = [
-    {
-      image: '/assets/images/banner/1.jpeg'
-    },
-    {
-      image: '/assets/images/banner/2.jpeg'
-    },
-    {
-      image: '/assets/images/table.jpg'
-    },
-    {
-      image: '/assets/images/banner/1.jpeg'
-    },
-    {
-      image: '/assets/images/banner/2.jpeg'
-    },
-    {
-      image: '/assets/images/table.jpg'
-    },
-  ];
+  @Input() products: Product[];
 
   constructor() { }
 

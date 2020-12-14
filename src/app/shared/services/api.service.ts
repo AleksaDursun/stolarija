@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
+import {Product} from '../dataModels/product.interface';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class ApiService {
     this.categoriesRef = db.list(this.dbPath);
   }
 
-  getAll(): AngularFireList<any> {
+  getAllCategories(): AngularFireList<any> {
     return this.categoriesRef;
   }
 
@@ -33,6 +34,10 @@ export class ApiService {
 
   deleteAll(): Promise<void> {
     return this.categoriesRef.remove();
+  }
+
+  addProduct(product: Product): void {
+    this.db.list(this.dbPath + '/' + product.category_name + '/' + '/products').push(product);
   }
 
 }

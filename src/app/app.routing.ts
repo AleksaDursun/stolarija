@@ -16,4 +16,8 @@ export const ROUTES = [
     path: 'product',
     loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
 ];

@@ -16,7 +16,7 @@ export class AppComponent {
 
 
   getCategoriesAndProducts(): void {
-    this.api.getAll().valueChanges().subscribe(data => {
+    this.api.getAllCategories().valueChanges().subscribe(data => {
       console.log(data);
     });
   }

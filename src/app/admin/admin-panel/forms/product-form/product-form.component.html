@@ -1,0 +1,37 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="category" class="form-label">Kategorija</label>
+    <select formControlName="category_name" id="category" class="form-control">
+      <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+    </select>
+  </div>
+  <div class="row" formGroupName="name">
+    <div class="mb-3 col-4">
+      <label for="name_sr" class="form-label">Ime Srpski</label>
+      <input type="text" formControlName="sr" class="form-control" id="name_sr" >
+    </div>
+    <div class="mb-3 col-4">
+      <label for="name_de" class="form-label">Ime Njemački</label>
+      <input type="text" formControlName="de" class="form-control" id="name_de" >
+    </div>
+    <div class="mb-3 col-4">
+      <label for="name_en" class="form-label">Ime Engleski</label>
+      <input type="text" formControlName="en" class="form-control" id="name_en" >
+    </div>
+  </div>
+  <div formGroupName="description">
+    <div class="mb-3">
+      <label for="description_sr" class="form-label">Opis Srpski</label>
+      <textarea type="text" formControlName="sr" class="form-control" id="description_sr" ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="description_de" class="form-label">Opis Njemački</label>
+      <textarea type="text" formControlName="de" class="form-control" id="description_de" ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="description_en" class="form-label">Opis Engleski</label>
+      <textarea type="text" formControlName="en" class="form-control" id="description_en" ></textarea>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Sačuvaj</button>
+</form>
