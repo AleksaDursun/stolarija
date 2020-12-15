@@ -1,4 +1,7 @@
-input, textarea {
+input, textarea, select {
   border: 0;
   border-bottom:1px solid black;
+}
+label {
+  margin-bottom: 0;
 }

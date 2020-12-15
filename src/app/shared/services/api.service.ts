@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {Product} from '../dataModels/product.interface';
+import {Category} from '../dataModels/category.interface';
 
 
 @Injectable({
@@ -20,15 +21,15 @@ export class ApiService {
     return this.categoriesRef;
   }
 
-  create(product: any): any {
-    return this.categoriesRef.push(product);
+  addCategory(category: Category): any {
+    return this.categoriesRef.push(category);
   }
 
-  update(key: string, value: any): Promise<void> {
+  updateCategory(key: string, value: any): Promise<void> {
     return this.categoriesRef.update(key, value);
   }
 
-  delete(key: string): Promise<void> {
+  deleteCategory(key: string): Promise<void> {
     return this.categoriesRef.remove(key);
   }
 

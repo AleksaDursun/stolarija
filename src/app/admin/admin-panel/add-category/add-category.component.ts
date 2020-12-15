@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {Category} from '../../../shared/dataModels/category.interface';
+import {ApiService} from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
   styleUrls: ['./add-category.component.scss']
 })
-export class AddCategoryComponent implements OnInit {
+export class AddCategoryComponent {
 
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) {
+  }
 
-  ngOnInit(): void {
+  onSubmit(e: Category): void {
+    this.api.addCategory(e);
   }
 
 }
