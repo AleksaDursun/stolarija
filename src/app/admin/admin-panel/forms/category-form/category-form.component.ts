@@ -28,7 +28,7 @@ export class CategoryFormComponent implements OnInit {
   @Output() submitted = new EventEmitter();
 
   categoryForm = new FormGroup({
-    icon: new FormControl(''),
+    icon: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     title: new FormGroup({
       sr: new FormControl(this.category.title.sr, [Validators.required]) ,
@@ -52,8 +52,11 @@ export class CategoryFormComponent implements OnInit {
       const products = this.category.products;
       this.category = this.categoryForm.value;
       this.category.products = products;
-      console.log(this.category);
       this.submitted.emit(this.category);
     }
+  }
+
+  setIconLink(e: string): void {
+    this.categoryForm.get('icon').setValue(e);
   }
 }

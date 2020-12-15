@@ -5,18 +5,24 @@
       <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
     </select>
   </div>
-  <div class="row" formGroupName="name">
-    <div class="mb-3 col-4">
-      <label for="name_sr" class="form-label">Ime Srpski</label>
-      <input type="text" formControlName="sr" class="form-control" id="name_sr" >
+  <div class="row">
+    <div class="mb-3 col-6">
+      <label for="icon" class="form-label">Ikonica</label>
+      <app-image-upload (publicLink)="setImageLink($event)" id="icon"></app-image-upload>
     </div>
-    <div class="mb-3 col-4">
-      <label for="name_de" class="form-label">Ime Njemački</label>
-      <input type="text" formControlName="de" class="form-control" id="name_de" >
-    </div>
-    <div class="mb-3 col-4">
-      <label for="name_en" class="form-label">Ime Engleski</label>
-      <input type="text" formControlName="en" class="form-control" id="name_en" >
+    <div class="col-6" formGroupName="name">
+      <div class="mb-3">
+        <label for="name_sr" class="form-label">Ime Srpski</label>
+        <input type="text" formControlName="sr" class="form-control" id="name_sr" >
+      </div>
+      <div class="mb-3">
+        <label for="name_de" class="form-label">Ime Njemački</label>
+        <input type="text" formControlName="de" class="form-control" id="name_de" >
+      </div>
+      <div class="mb-3">
+        <label for="name_en" class="form-label">Ime Engleski</label>
+        <input type="text" formControlName="en" class="form-control" id="name_en" >
+      </div>
     </div>
   </div>
   <div formGroupName="description">

@@ -4,6 +4,9 @@ import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wra
 import {SimpleImageComponent} from './components/simple-image/simple-image.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import {RouterModule} from '@angular/router';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {NgxDropzoneModule} from 'ngx-dropzone';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -11,16 +14,19 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [SimpleImageComponent, SingleProductComponent],
+  declarations: [SimpleImageComponent, SingleProductComponent, ImageUploadComponent],
   imports: [
     CommonModule,
     SwiperModule,
-    RouterModule
+    RouterModule,
+    AngularFireStorageModule,
+    NgxDropzoneModule
   ],
   exports: [
     SwiperModule,
     SimpleImageComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    ImageUploadComponent
   ],
   providers: [
     {

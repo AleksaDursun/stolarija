@@ -30,7 +30,7 @@ export class ProductFormComponent implements OnInit {
   @Output() submitted = new EventEmitter();
 
   productForm = new FormGroup({
-    image: new FormControl(),
+    image: new FormControl('', [Validators.required]),
     category_name: new FormControl(this.product.category_name, [Validators.required]),
     name: new FormGroup({
       sr: new FormControl(this.product.name.sr, [Validators.required]) ,
@@ -54,6 +54,10 @@ export class ProductFormComponent implements OnInit {
       console.log(this.productForm.value);
       this.submitted.emit(this.productForm.value);
     }
+  }
+
+  setImageLink(e: string): void {
+    this.productForm.get('image').setValue(e);
   }
 
 }
