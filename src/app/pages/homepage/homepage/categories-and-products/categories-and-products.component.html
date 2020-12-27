@@ -11,48 +11,12 @@
     <div class="container">
       <div class="row text-center justify-content-center">
 
-        <div class="col-6 col-md-3 pt-5 pt-sm-0">
+        <div class="col-6 col-md-3 pt-5 pt-sm-0" *ngFor="let category of categories">
           <div class="py-4 py-md-5 px-4 shadow-light bg-white">
-            <img alt="image" class="fdb-icon" src="assets/froalaBlocks/imgs/icons/monitor.svg">
-            <h3 class="font-weight-bold text-primary" i18n>TABLES</h3>
+            <img alt="image" class="fdb-icon" src="{{category.icon}}">
+            <h3 class="font-weight-bold text-primary text-uppercase" i18n>{{category.title.sr}}</h3>
             <p class="mt-3">
-              <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#categoryModal" i18n>
-                VIEW MORE
-              </button>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-3 pt-5 pt-sm-0">
-          <div class="py-4 py-md-5 px-4 shadow-light bg-white">
-            <img alt="image" class="fdb-icon" src="assets/froalaBlocks/imgs/icons/map-pin.svg">
-            <h3 class="font-weight-bold text-primary" i18n>CHAIRS</h3>
-            <p class="mt-3">
-              <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#categoryModal" i18n>
-                VIEW MORE
-              </button>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-3 pt-5 pt-sm-0">
-          <div class="py-4 py-md-5 px-4 shadow-light bg-white">
-            <img alt="image" class="fdb-icon" src="assets/froalaBlocks/imgs/icons/layout.svg">
-            <h3 class="font-weight-bold text-primary" i18n>MIRRORS</h3>
-            <p class="mt-3">
-              <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#categoryModal" i18n>
-                VIEW MORE
-              </button>
-            </p>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-3 pt-5 pt-sm-0">
-          <div class="py-4 py-md-5 px-4 shadow-light bg-white">
-            <img alt="image" class="fdb-icon" src="assets/froalaBlocks/imgs/icons/package.svg">
-            <h3 class="font-weight-bold text-primary" i18n>STAIRS</h3>
-            <p class="mt-3">
-              <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#categoryModal" i18n>
+              <button type="button" class="btn btn-dark" (click)="sendProductsToModal(category)" data-toggle="modal" data-target="#categoryModal" i18n>
                 VIEW MORE
               </button>
             </p>
@@ -62,24 +26,6 @@
       </div>
     </div>
   </section>
-
-  <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryTitleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h4 class="modal-title text-center text-text-darklight" id="categoryTitleModalLabel">Category Title</h4>
-        <h5 class="modal-title text-center text-dark">Products</h5>
-        <div class="products row">
-          <div class="col-6 px-0 col-lg-4" *ngFor="let product of products">
-            <app-single-product [product]="product"></app-single-product>
-          </div>
-        </div>
-        <div class="d-flex align-items-center p-3 justify-content-end">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">VIEW MORE</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
 </section>
+
+<app-cat-prod-modal></app-cat-prod-modal>

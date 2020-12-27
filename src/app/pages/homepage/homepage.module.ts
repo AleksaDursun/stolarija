@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import { SwiperComponent } from './homepage/swiper/swiper.component';
 import { CategoriesAndProductsComponent } from './homepage/categories-and-products/categories-and-products.component';
 import {ROUTES} from './home.routing';
+import { CatProdModalComponent } from './homepage/categories-and-products/cat-prod-modal/cat-prod-modal.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -14,7 +15,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [HomepageComponent, SwiperComponent, CategoriesAndProductsComponent],
+  declarations: [HomepageComponent, SwiperComponent, CategoriesAndProductsComponent, CatProdModalComponent],
   imports: [
     CommonModule,
     SharedModule,

@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
+import {Category} from '../../../../shared/dataModels/category.interface';
+import {CategoriesAndProductsService} from '../../../../shared/services/categories-and-products.service';
 import {Product} from '../../../../shared/dataModels/product.interface';
 
 @Component({
@@ -6,13 +8,16 @@ import {Product} from '../../../../shared/dataModels/product.interface';
   templateUrl: './categories-and-products.component.html',
   styleUrls: ['./categories-and-products.component.scss']
 })
-export class CategoriesAndProductsComponent implements OnInit {
+export class CategoriesAndProductsComponent {
 
-  @Input() products: Product[];
+  public categories: Category[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.categories = CategoriesAndProductsService.CATEGORIES_AND_PRODUCTS;
   }
 
+  sendProductsToModal(category: Category): void {
+    const e = new CustomEvent('productsSent', {detail: category});
+    window.dispatchEvent(e);
+  }
 }
