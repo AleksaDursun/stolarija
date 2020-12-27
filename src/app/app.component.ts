@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ApiService} from './shared/services/api.service';
+import {CategoriesAndProductsService} from './shared/services/categories-and-products.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +9,9 @@ import {ApiService} from './shared/services/api.service';
 export class AppComponent {
 
   constructor(
-    private api: ApiService
+    private categoriesAndProducts: CategoriesAndProductsService
   ) {
-    this.getCategoriesAndProducts();
-  }
-
-
-  getCategoriesAndProducts(): void {
-    this.api.getAllCategories().valueChanges().subscribe(data => {
-      console.log(data);
-    });
+    this.categoriesAndProducts.getData();
   }
 
 }

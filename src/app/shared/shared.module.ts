@@ -7,6 +7,9 @@ import {RouterModule} from '@angular/router';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {NgxDropzoneModule} from 'ngx-dropzone';
+import {CategoriesAndProductsService} from './services/categories-and-products.service';
+import {LocalStorageService} from './services/local-storage.service';
+import {ConstService} from './services/const.service';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -29,6 +32,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ImageUploadComponent
   ],
   providers: [
+    CategoriesAndProductsService,
+    LocalStorageService,
+    ConstService,
     {
       provide: SWIPER_CONFIG,
       useValue: DEFAULT_SWIPER_CONFIG

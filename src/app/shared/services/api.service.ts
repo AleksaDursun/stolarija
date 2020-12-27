@@ -9,16 +9,16 @@ import {Category} from '../dataModels/category.interface';
 })
 export class ApiService {
 
-  private dbPath = '/categories';
+  private dbPath = '/categories/';
 
   categoriesRef: AngularFireList<any> = null;
 
   constructor(private db: AngularFireDatabase) {
-    this.categoriesRef = db.list(this.dbPath);
+    this.categoriesRef = db.list(this.dbPath + 'list');
   }
 
   getAllCategories(): AngularFireList<any> {
-    return this.categoriesRef;
+    return this.db.list(this.dbPath);
   }
 
   addCategory(category: Category): any {
@@ -38,7 +38,7 @@ export class ApiService {
   }
 
   addProduct(product: Product): void {
-    this.db.list(this.dbPath + '/' + product.category_name + '/' + '/products').push(product);
+    this.db.list(this.dbPath + '/list/' + product.category_key + '/products').push(product);
   }
 
 }

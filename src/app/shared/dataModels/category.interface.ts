@@ -7,5 +7,6 @@ export interface Category {
   name: string;
   title: Name;
   description: Description;
+  key: string;
   products?: Product[];
 }

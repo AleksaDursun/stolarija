@@ -1,36 +1,26 @@
 import {Component, OnDestroy} from '@angular/core';
 import {Product} from '../../../shared/dataModels/product.interface';
 import {ApiService} from '../../../shared/services/api.service';
+import {map} from 'rxjs/operators';
+import {CategoriesAndProductsService} from '../../../shared/services/categories-and-products.service';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent implements OnDestroy {
+export class AddProductComponent {
 
   categories;
-  private categoriesSub;
 
   constructor(
-    private api: ApiService
+    private categoriesAndProductsService: CategoriesAndProductsService
   ) {
-    this.getCategories();
-  }
-
-  ngOnDestroy(): void {
-    if (this.categoriesSub) {
-      this.categoriesSub.unsubscribe();
-    }
+    this.categories = CategoriesAndProductsService.CATEGORIES_AND_PRODUCTS;
   }
 
   onSubmit(product: Product): void {
-    this.api.addProduct(product);
+    this.categoriesAndProductsService.addProduct(product);
   }
 
-  private getCategories(): void {
-    this.categoriesSub = this.api.getAllCategories().valueChanges().subscribe(data => {
-      this.categories = data;
-    });
-  }
 }
