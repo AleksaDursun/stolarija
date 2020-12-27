@@ -1,7 +1,5 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component} from '@angular/core';
 import {Product} from '../../../shared/dataModels/product.interface';
-import {ApiService} from '../../../shared/services/api.service';
-import {map} from 'rxjs/operators';
 import {CategoriesAndProductsService} from '../../../shared/services/categories-and-products.service';
 
 @Component({
