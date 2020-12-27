@@ -12,6 +12,7 @@ export class CategoryFormComponent implements OnInit {
   @Input() category: Category = {
     icon: '',
     name: '',
+    key: '',
     title: {
       sr: '',
       en: '',
