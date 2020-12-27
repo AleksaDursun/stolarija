@@ -13,7 +13,7 @@ export class CategoryComponent {
 
 
   products: Product[];
-  category: Category | false;
+  category: Category;
 
   constructor(
     private categoriesAndProductsService: CategoriesAndProductsService,
@@ -21,6 +21,7 @@ export class CategoryComponent {
   ) {
     this.route.params.subscribe(params => {
       if (params.name) {
+        // @ts-ignore
         this.category = this.categoriesAndProductsService.getCategory(params.name);
         if (this.category) {
           if (this.category.products) {

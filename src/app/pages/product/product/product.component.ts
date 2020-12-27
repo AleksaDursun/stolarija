@@ -14,7 +14,7 @@ export class ProductComponent {
 
   selectedProduct: Product;
   products: Product[];
-  category: Category | false;
+  category: Category;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +23,7 @@ export class ProductComponent {
      this.route.params.subscribe(params => {
        console.log(params);
        if (params.categoryName && params.name) {
+         // @ts-ignore
          this.category = this.categoriesAndProducts.getCategory(params.categoryName);
          // @ts-ignore
          if (this.category.products) {
