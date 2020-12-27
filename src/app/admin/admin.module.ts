@@ -12,6 +12,7 @@ import { AddCategoryComponent } from './admin-panel/add-category/add-category.co
 import { ProductFormComponent } from './admin-panel/forms/product-form/product-form.component';
 import { CategoryFormComponent } from './admin-panel/forms/category-form/category-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {EditorModule} from '@tinymce/tinymce-angular';
 
 
 
@@ -21,7 +22,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     SharedModule,
     RouterModule.forChild(ROUTES),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EditorModule
   ]
 })
 export class AdminModule { }

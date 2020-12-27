@@ -11,6 +11,7 @@ import {CategoriesAndProductsService} from './services/categories-and-products.s
 import {LocalStorageService} from './services/local-storage.service';
 import {ConstService} from './services/const.service';
 import {StripSpecialCharsPipe} from './pipes/strip-special-chars.pipe';
+import {SafePipe} from './pipes/safe.pipe';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -18,7 +19,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [SimpleImageComponent, SingleProductComponent, ImageUploadComponent, StripSpecialCharsPipe],
+  declarations: [SimpleImageComponent, SingleProductComponent, ImageUploadComponent, StripSpecialCharsPipe, SafePipe],
   imports: [
     CommonModule,
     SwiperModule,
@@ -31,7 +32,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SimpleImageComponent,
     SingleProductComponent,
     ImageUploadComponent,
-    StripSpecialCharsPipe
+    StripSpecialCharsPipe,
+    SafePipe
   ],
   providers: [
     CategoriesAndProductsService,

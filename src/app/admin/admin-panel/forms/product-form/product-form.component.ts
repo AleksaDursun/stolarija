@@ -26,7 +26,6 @@ export class ProductFormComponent implements OnInit {
     }
   };
   @Input() categories: Category[];
-
   @Output() submitted = new EventEmitter();
 
   productForm = new FormGroup({
