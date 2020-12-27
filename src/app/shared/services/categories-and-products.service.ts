@@ -5,6 +5,7 @@ import {Category} from '../dataModels/category.interface';
 import {LocalStorageService} from './local-storage.service';
 import {ConstService} from './const.service';
 import {Product} from '../dataModels/product.interface';
+import {StripSpecialCharsPipe} from '../pipes/strip-special-chars.pipe';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,14 @@ export class CategoriesAndProductsService {
 
   addCategory(category): void {
     this.api.addCategory(category);
+  }
+
+  getCategory(categoryName: string): Category | false {
+    const category = CategoriesAndProductsService.CATEGORIES_AND_PRODUCTS.find(c => StripSpecialCharsPipe.strip(c.name) === StripSpecialCharsPipe.strip(categoryName));
+    if (category) {
+     return category;
+    }
+    return false;
   }
 
 }

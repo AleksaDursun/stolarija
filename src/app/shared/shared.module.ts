@@ -10,6 +10,7 @@ import {NgxDropzoneModule} from 'ngx-dropzone';
 import {CategoriesAndProductsService} from './services/categories-and-products.service';
 import {LocalStorageService} from './services/local-storage.service';
 import {ConstService} from './services/const.service';
+import {StripSpecialCharsPipe} from './pipes/strip-special-chars.pipe';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -17,7 +18,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [SimpleImageComponent, SingleProductComponent, ImageUploadComponent],
+  declarations: [SimpleImageComponent, SingleProductComponent, ImageUploadComponent, StripSpecialCharsPipe],
   imports: [
     CommonModule,
     SwiperModule,
@@ -29,7 +30,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SwiperModule,
     SimpleImageComponent,
     SingleProductComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    StripSpecialCharsPipe
   ],
   providers: [
     CategoriesAndProductsService,
