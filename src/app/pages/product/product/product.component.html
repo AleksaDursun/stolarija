@@ -5,22 +5,12 @@
         <img src="/assets/images/banner/1.jpeg" alt="">
       </div>
       <div class="col-12 col-lg-6">
-        <h2 class="text-primary" i18n>Product Name</h2>
-        <p i18n>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, debitis delectus doloribus ducimus eveniet
-          facere in iste labore laudantium magni nostrum officiis pariatur quisquam repellat, repudiandae ullam unde vel
-          voluptatem?</p>
-        <ul>
-          <li i18n>Dimensions: 120 x 180</li>
-          <li i18n>Material: Oak</li>
-          <li i18n>Price: $450</li>
-          <li i18n>Dimensions: 120 x 180</li>
-          <li i18n>Material: Oak</li>
-          <li i18n>Price: $450</li>
-        </ul>
+        <h2 class="text-primary">{{selectedProduct.name.sr}}</h2>
+        <p>{{selectedProduct.description.sr}}</p>
       </div>
     </div>
     <section class="related-products">
-      <app-related-products></app-related-products>
+      <app-related-products [products]="products"></app-related-products>
     </section>
   </div>
 </section>

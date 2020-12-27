@@ -6,7 +6,7 @@ export const ROUTES = [
     component: ProductComponent
   },
   {
-    path: ':id',
+    path: ':categoryName/:name',
     component: ProductComponent
   },
 ];

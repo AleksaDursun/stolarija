@@ -15,4 +15,8 @@ export class SingleProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  dismissModal(): void {
+    $('#categoryModal').modal('toggle');
+  }
+
 }
