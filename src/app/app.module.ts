@@ -1,29 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {SharedModule} from './shared/shared.module';
-import {CoreModule} from './core/core.module';
-import {RouterModule} from '@angular/router';
-import {AngularFireModule} from '@angular/fire';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DemoComponent } from './components/demo/demo.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxImgZoomModule } from 'ngx-img-zoom';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './components/shared/shared.module';
+import { ColorOptionsComponent } from './components/color-options/color-options.component';
 import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemoComponent,
+    ColorOptionsComponent
   ],
   imports: [
+    NgxSpinnerModule,
     BrowserModule,
-    NgbModule,
     SharedModule,
-    CoreModule,
-    AppRoutingModule,
+    NgxSkeletonLoaderModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    NgxImgZoomModule,
     AngularFireModule.initializeApp(environment.FIREBASE),
     AngularFireDatabaseModule
   ],

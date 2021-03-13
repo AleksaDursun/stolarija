@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {ROUTES} from './app.routing';
+import {RouterModule, Routes} from '@angular/router';
 
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    loadChildren: () => import('./components/main/main.module').then(m => m.MainModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(ROUTES, {
-    scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled',
-    relativeLinkResolution: 'legacy'
-})],
+  declarations: [],
+  imports: [
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' })
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
-
+export class AppRoutingModule { }

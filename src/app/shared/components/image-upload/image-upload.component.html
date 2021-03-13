@@ -1,6 +1,0 @@
-<ngx-dropzone (change)="onFileSelected($event)" [multiple]="false" accept="image/jpeg,image/jpg,image/png,image/gif">
-  <ngx-dropzone-label>Ubaci sliku</ngx-dropzone-label>
-  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="removeImage(f)" *ngFor="let f of files" [file]="f">
-    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-  </ngx-dropzone-image-preview>
-</ngx-dropzone>
