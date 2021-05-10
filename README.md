@@ -1,27 +1,66 @@
-# EcommerceSophiaNew
+BlackBox
+========
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+# Development
 
-## Development server
+To install development follow steps below:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## In windows:
+1. Clone this project.
+2. Run `npm install`
+3. Run `gulp build`
+4. Add this at the end of the windows hosts file `127.0.0.1 admin.umjetnostudrvetu.local api.umjetnostudrvetu.local`
+5. Execute `docker-compose up`
+6. Go into the project with `winpty docker-compose exec php-fpm bash` and in the docker container:
+   - Run `apt-get update` 
+   - Run `composer install`
+   - Run `php init` and chose in which environment you want to run it
+   - Run `php yii migrate`
 
-## Code scaffolding
+7. Go into the project with `winpty docker-compose exec mariadb bash` and in the docker container:
+   - Insert database dump with `mysql -u root -p umjetnost_u_drvetu < dump_name.sql` 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+8. Start developing.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Syncing
+In php container run:
+   - `php yii product/comtrade-update`
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+DIRECTORY STRUCTURE
+-------------------
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+2ambox
+    nginx                   nginx server configuration for local machine
+common
+    config/                 contains shared configurations
+    mail/                   contains view files for e-mails
+    models/                 contains model classes used in both backend and frontend
+    tests/                  contains tests for common classes    
+console
+    config/                 contains console configurations
+    controllers/            contains console controllers (commands)
+    migrations/             contains database migrations
+    models/                 contains console-specific model classes
+    runtime/                contains files generated during runtime
+api
+    config/                 contains frontend configurations
+    versions/v1/controllers contains Web controller classes
+    models/                 contains frontend-specific model classes
+    web/                    contains the entry script and Web resources
+    components/             contains frontend widgets
+backend
+    assets/                 contains application assets such as JavaScript and CSS
+    config/                 contains backend configurations
+    controllers/            contains Web controller classes
+    models/                 contains backend-specific model classes
+    runtime/                contains files generated during runtime
+    tests/                  contains tests for backend application    
+    views/                  contains view files for the Web application
+    web/                    contains the entry script and Web resources
+vendor/                     contains dependent 3rd-party packages
+environments/               contains environment-based overrides
+theme/                      contains backend theme files
+```
