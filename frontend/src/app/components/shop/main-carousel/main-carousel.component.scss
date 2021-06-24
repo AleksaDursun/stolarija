@@ -1,0 +1,35 @@
+a {
+  max-width: 150px;
+}
+
+.main-slider {
+  @media screen and (min-width: 960px) {
+    height: 530px !important;
+  }
+  @media screen and (max-width: 959px) {
+    height: 300px !important;
+  }
+}
+
+p.text-white {
+  font-size: 18px;
+}
+
+.shadow {
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,0.4066001400560224) 0%, rgba(0,0,0,0.36458333333333337) 0%, rgba(255,255,255,0) 58%, rgba(255,255,255,0) 100%);
+}
+
+.pt-35 {
+ padding-top: 35px;
+}
+
+.content {
+  padding-right: unset!important;
+}
+
+.slide-item {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

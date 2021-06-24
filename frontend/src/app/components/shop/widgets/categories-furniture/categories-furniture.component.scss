@@ -1,0 +1,32 @@
+.category-contant {
+  max-height: 480px;
+  overflow-x: hidden;
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+.border {
+  border-bottom: 1px solid #a1a1a1;
+  border-top: 1px solid #a1a1a1;
+}

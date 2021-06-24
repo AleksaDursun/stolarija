@@ -1,0 +1,39 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #start [opened]="false" class="sidenav" mode="over">
+        <button (click)="start.close()" id="close-button" class="close" color="warn" mat-icon-button>
+            <mat-icon color="warn">close</mat-icon>
+        </button>
+        <div class="divider"></div>
+        <div class="sidebar-items" fxLayout="column">
+            <app-sidebar *ngFor="let item of navItems" [item]="item"></app-sidebar>
+        </div>
+    </mat-sidenav>
+    <!-- topbar start -->
+    <mat-toolbar class="main-topbar">
+        <mat-toolbar-row class="top-bar container" fxLayout="row" fxLayoutAlign="space-between center">
+                <span fxHide="false" fxHide.gt-sm>
+                    <button (click)="start.toggle()" mat-icon-button>
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                 </span>
+            <div class="welcome-message" fxLayout="row">
+                <h4>Dobrodošli u naš e-shop!</h4>
+            </div>
+            <div class="widgets-left" fxLayout="row">
+
+                <div class="widget-text">
+                    <a [routerLink]="['/info/omiljeno']" fxShow="false" fxShow.gt-xs
+                       routerLinkActive="router-link-active">
+                        <mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon>
+                        OMILJENO</a>
+                </div>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <app-header></app-header>
+
+    <router-outlet></router-outlet>
+
+    <app-footer-two></app-footer-two>
+
+</mat-sidenav-container>

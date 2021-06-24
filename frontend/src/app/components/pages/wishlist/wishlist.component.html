@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="cart-wrapper sec-padding">
+
+
+        <div fxLayout="column" fxLayoutAlign="space-around center" *ngIf="!wishlistItems.length">
+            <mat-chip-list>
+                <mat-chip color="warn" selected="true">Lista "Omiljeno" je prazna.</mat-chip>
+            </mat-chip-list>
+            <div>
+                <a [routerLink]="['/pocetna']" routerLinkActive="router-link-active" mat-raised-button color="primary"
+                   class="btn-project mt-20">Nastavite kupovinu</a>
+            </div>
+
+        </div>
+
+        <mat-card *ngIf="wishlistItems.length && !isMobile" class="p-0">
+            <div class="mat-table cart-table">
+                <div class="mat-header-row">
+                    <div class="mat-header-cell">Proizvod</div>
+                    <div class="mat-header-cell">Ime</div>
+                    <div class="mat-header-cell">Cijena</div>
+                    <div class="mat-header-cell text-center">Ukloni</div>
+                </div>
+                <div *ngFor="let item of wishlistItems" class="mat-row">
+                    <div class="mat-cell"><img [src]="item.image_url"></div>
+                    <div class="mat-cell"><a class="product-name">{{item.name}}</a></div>
+                    <div class="mat-cell price">{{item.discount_price | currency: productsService?.currency: 'symbol'}}</div>
+
+                    <div class="mat-cell text-center">
+                        <div class="p-1">
+                            <mat-icon class="close" (click)="removeItem(item)">close</mat-icon>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mat-row">
+                    <div class="mat-cell"><a [routerLink]="['/pocetna']" routerLinkActive="router-link-active"
+                                             mat-raised-button color="primary" class="btn-project">Nastavite
+                        kupovinu</a></div>
+                    <div class="mat-cell"></div>
+                    <div class="mat-cell"></div>
+                    <div class="mat-cell text-center"></div>
+                </div>
+            </div>
+        </mat-card>
+        <mat-card *ngIf="wishlistItems.length && isMobile">
+            <div *ngFor="let item of wishlistItems">
+                <div fxLayout="row" fxLayoutAlign="space-between start">
+                    <img class="mw-75" [src]="item.image_url">
+                    <div fxLayout="column" fxLayoutAlign="space-between start">
+                        <p class="font-weight-bold">{{item.name}}</p>
+                        <p>{{item.discount_price | currency: productsService?.currency: 'symbol'}}</p>
+                    </div>
+                    <div class="p-1">
+                        <mat-icon class="close" (click)="removeItem(item)">close</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <a [routerLink]="['/pocetna']" routerLinkActive="router-link-active"
+               mat-raised-button color="primary" class="btn-project keep-shopping">Nastavite
+                kupovinu</a>
+        </mat-card>
+    </div>
+</div>

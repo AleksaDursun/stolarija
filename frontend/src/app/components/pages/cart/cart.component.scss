@@ -1,0 +1,39 @@
+.mobile-quantity-change {
+  display: inline-flex !important;
+
+  input {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    text-align: center;
+    color: black;
+    background-color: #e1e1e1;
+  }
+}
+
+p {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.mobile {
+  .cart-item {
+    margin-top: 20px;
+  }
+
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .btn-project {
+    margin-top: 20px;
+  }
+
+  .new-price {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}

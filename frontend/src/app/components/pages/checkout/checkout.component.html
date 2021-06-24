@@ -1,0 +1,128 @@
+<div class="container">
+    <div class="checkout sec-padding">
+        <div fxLayout="row wrap" class="">
+            <div class="billing-details  pr-15" fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50">
+                <div class="header-title">
+                    <h2>Detalji porudžbine</h2>
+                </div>
+
+                <form fxLayout="row wrap" [formGroup]="checkoutForm">
+                    <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="mt-20 pr-5" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Ime*" formControlName="first_name">
+                            <mat-error *ngIf="checkoutForm.get('first_name').invalid">Ime je obavezno</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="pl-5 mt-20" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Prezime*" formControlName="last_name">
+                            <mat-error *ngIf="checkoutForm.get('last_name').invalid">Prezime je obavezno</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="100" class="mt-20" ngClass.sm="mt-10" ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Adresa*" formControlName="address">
+                            <mat-error *ngIf="checkoutForm.get('address').invalid">Adresa je obavezna</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="pl-5 mt-20" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Grad*" formControlName="city">
+                            <mat-error *ngIf="checkoutForm.get('city').invalid">Grad je obavezan</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="pl-5 mt-20" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Poštanski broj*" formControlName="zip_code">
+                            <mat-error *ngIf="checkoutForm.get('zip_code').invalid">Poštanski broj je obavezan
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="mt-20 pr-5" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Email adresa*" formControlName="email">
+                            <mat-error *ngIf="checkoutForm.get('email').errors?.required">Email je obavezan</mat-error>
+                            <mat-error *ngIf="checkoutForm.get('email').errors?.email">Email nije validan</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="pl-5 mt-20" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Telefon" formControlName="phone">
+                            <mat-error *ngIf="checkoutForm.get('phone').errors?.required">Telefon je obavezan</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="100" class="mt-20" ngClass.sm="mt-10" ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <textarea placeholder="Dodatne informacije" formControlName="notes" matInput
+                                      rows="4"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="100" fxFlex.gt-sm="100" class="mt-20" ngClass.sm="mt-10" ngClass.xs="mt-10">
+                            <mat-slide-toggle formControlName="a4_receipt">Želim A4 račun</mat-slide-toggle>
+                    </div>
+                    <div *ngIf="checkoutForm.get('a4_receipt').value" fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="mt-20 pr-5" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Naziv firme*" formControlName="company_name">
+                            <mat-error *ngIf="checkoutForm.get('company_name').invalid">Ime tvrtke je obavezno</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="checkoutForm.get('a4_receipt').value" fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50" class="pl-5 mt-20" ngClass.sm="mt-10"
+                         ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="ID broj*" formControlName="company_id">
+                            <mat-error *ngIf="checkoutForm.get('company_id').invalid">OIB je obavezan</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="checkoutForm.get('a4_receipt').value" fxFlex="100" fxFlex.gt-sm="100" class="mt-20" ngClass.sm="mt-10" ngClass.xs="mt-10">
+                        <mat-form-field class="w-100">
+                            <input matInput placeholder="Adresa*" formControlName="company_address">
+                            <mat-error *ngIf="checkoutForm.get('company_address').invalid">Adresa tvrtke je obavezna</mat-error>
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+            <div class="mainOrder-wrapper pl-15" fxFlex="100" fxFlex.gt-md="50" fxFlex.md="50">
+                <div class="main-order ">
+                    <div class="order-box">
+                        <div class="title-box">
+                            <div>Product <span class="tl-amount"> Total</span></div>
+                        </div>
+                        <ul class="price-list" *ngIf='buyProducts.length'>
+                            <li *ngFor="let item of buyProducts">
+                                {{ item.product.name }} × {{ item.quantity }}
+                                <span>
+                       {{ item.product.price * item.quantity | currency:productService?.currency:'symbol' }}
+                        </span>
+                            </li>
+                        </ul>
+                        <ul class="quantity" *ngIf='buyProducts.length <= 0'>
+                            <li class="empty-checkout"> Nema proizvoda u korpi.</li>
+                        </ul>
+                        <ul class="total">
+                            <li>Total
+                                <span class="count">
+                                    {{ getTotal() | async | currency:productService?.currency:'symbol'}}
+                                </span>
+                            </li>
+                        </ul>
+                        <p class="red" *ngIf="showError">Desio se neki problem. Molimo vas da pokušate kasnije.</p>
+                        <div class="order">
+                            <button class="btn-project" [disabled]="isButtonDisabled" mat-raised-button color="primary" (click)="placeOrder()"
+                                    type="submit">
+                                Naruči
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

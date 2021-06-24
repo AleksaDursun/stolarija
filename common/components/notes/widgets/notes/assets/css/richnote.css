@@ -1,0 +1,935 @@
+/*
+ * The MIT License
+ * Copyright (c) 2012 Matias Meno <m@tias.me>
+ */
+@-webkit-keyframes passing-through {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        -moz-transform: translateY(40px);
+        -ms-transform: translateY(40px);
+        -o-transform: translateY(40px);
+        transform: translateY(40px);
+    }
+    30%, 70% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        -moz-transform: translateY(-40px);
+        -ms-transform: translateY(-40px);
+        -o-transform: translateY(-40px);
+        transform: translateY(-40px);
+    }
+}
+
+@-moz-keyframes passing-through {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        -moz-transform: translateY(40px);
+        -ms-transform: translateY(40px);
+        -o-transform: translateY(40px);
+        transform: translateY(40px);
+    }
+    30%, 70% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        -moz-transform: translateY(-40px);
+        -ms-transform: translateY(-40px);
+        -o-transform: translateY(-40px);
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes passing-through {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        -moz-transform: translateY(40px);
+        -ms-transform: translateY(40px);
+        -o-transform: translateY(40px);
+        transform: translateY(40px);
+    }
+    30%, 70% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-40px);
+        -moz-transform: translateY(-40px);
+        -ms-transform: translateY(-40px);
+        -o-transform: translateY(-40px);
+        transform: translateY(-40px);
+    }
+}
+
+@-webkit-keyframes slide-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        -moz-transform: translateY(40px);
+        -ms-transform: translateY(40px);
+        -o-transform: translateY(40px);
+        transform: translateY(40px);
+    }
+    30% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+}
+
+@-moz-keyframes slide-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        -moz-transform: translateY(40px);
+        -ms-transform: translateY(40px);
+        -o-transform: translateY(40px);
+        transform: translateY(40px);
+    }
+    30% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(40px);
+        -moz-transform: translateY(40px);
+        -ms-transform: translateY(40px);
+        -o-transform: translateY(40px);
+        transform: translateY(40px);
+    }
+    30% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        -moz-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    10% {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    20% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    10% {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    20% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    10% {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    20% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/* CHAT WIDGET START */
+
+.conversation-list {
+    list-style: none;
+    height: 332px;
+    padding: 0px 20px;
+}
+
+.conversation-list li {
+    margin-bottom: 24px;
+}
+
+.conversation-list .chat-avatar {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 42px;
+}
+
+.conversation-list .chat-avatar img {
+    border-radius: 100%;
+}
+
+.conversation-list .chat-avatar i {
+    font-size: 12px;
+    font-style: normal;
+}
+
+.conversation-list .ctext-wrap {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background: #f4f8fb;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 12px;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.conversation-list .ctext-wrap i {
+    color: #1a2942;
+    display: block;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    position: relative;
+}
+
+.conversation-list .ctext-wrap p {
+    margin: 0px;
+    padding-top: 3px;
+}
+
+.conversation-list .ctext-wrap:after {
+    right: 100%;
+    top: 0%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-top-color: #f4f8fb;
+    border-width: 8px;
+    margin-left: -1px;
+    border-right-color: #f4f8fb;
+}
+
+.conversation-list .conversation-text {
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    margin-left: 12px;
+    width: 70%;
+}
+
+.conversation-list .odd .chat-avatar {
+    float: right !important;
+}
+
+.conversation-list .odd .conversation-text {
+    float: right !important;
+    margin-right: 12px;
+    text-align: right;
+    width: 70% !important;
+}
+
+.conversation-list .odd .ctext-wrap:after {
+    border-color: rgba(238, 238, 242, 0) !important;
+    border-left-color: #f4f8fb !important;
+    border-top-color: #f4f8fb !important;
+    left: 100% !important;
+    margin-right: -1px;
+}
+
+.chat-send {
+    padding-left: 0px;
+    padding-right: 30px;
+}
+
+.chat-send button {
+    width: 100%;
+}
+
+.chat-inputbar {
+    padding-left: 30px;
+}
+
+.conversation-list .chat-avatar {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 42px;
+    height: 42px;
+}
+
+.conversation-list .chat-avatar img {
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.note-files .thumb-container {
+    text-align: center;
+    line-height: 70px;
+}
+
+.note-files .thumb-container .thumb-preview {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.note-files .thumb-container .thumb-preview .icon.file {
+    margin: 0;
+    font-size: 45px;
+    color: #1a2942;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+/* CHAT WIDGET END */
+
+.rich-note .dropzone, .rich-note .dropzone * {
+    box-sizing: border-box;
+}
+
+.rich-note .dropzone {
+    min-height: 120px;
+    border-radius: 4px;
+    border: 2px dashed #cecece;
+    text-align: center;
+}
+
+.rich-note .dropzone.dz-clickable {
+    cursor: pointer;
+}
+
+.rich-note .dropzone.dz-clickable * {
+    cursor: default;
+}
+
+.rich-note .dropzone.dz-clickable .dz-message,
+.rich-note .dropzone.dz-clickable .dz-message * {
+    cursor: pointer;
+}
+
+.rich-note .dropzone.dz-started .dz-message {
+    display: none;
+}
+
+.rich-note .dropzone.dz-drag-hover {
+    border-style: solid;
+}
+
+.rich-note .dropzone.dz-drag-hover .dz-message {
+    opacity: 0.5;
+}
+
+.rich-note .dropzone .dz-message {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.rich-note .dropzone .dz-preview {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 16px;
+    height: 80px;
+    width: 80px;
+}
+
+.rich-note .dropzone .dz-preview:hover {
+    z-index: 1000;
+}
+
+.rich-note .dropzone .dz-preview:hover .dz-details {
+    opacity: 1;
+}
+
+.rich-note .dropzone .dz-preview.dz-file-preview .dz-image {
+    border-radius: 5px;
+    background: #999;
+    background: linear-gradient(to bottom, #eee, #ddd);
+}
+
+.rich-note .dropzone .dz-preview.dz-file-preview .dz-details {
+    opacity: 1;
+    margin-top: 5px;
+}
+
+.rich-note .dropzone .dz-preview.dz-image-preview {
+    background: white;
+}
+
+.rich-note .dropzone .dz-preview.dz-image-preview .dz-details {
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -ms-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
+
+.rich-note .dropzone .dz-preview .dz-remove {
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    z-index: 11;
+    top: -9px;
+    right: -7px;
+    font-size: 12px;
+}
+
+.rich-note .dropzone .dz-preview .dz-remove i {
+    color: #ff0000;
+}
+
+.rich-note .dropzone .dz-preview .dz-remove:hover {
+    text-decoration: none;
+}
+
+.rich-note .dropzone .dz-preview:hover .dz-details {
+    opacity: 1;
+}
+
+.rich-note .dropzone .dz-preview .dz-details {
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 9px;
+    left: 0;
+    max-width: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 25px;
+    z-index: 20;
+}
+
+.rich-note .dropzone .dz-preview .dz-details .dz-size {
+    font-size: 10px;
+    width: 50px;
+}
+
+.rich-note .dropzone .dz-preview .dz-details .dz-filename {
+    white-space: nowrap;
+    margin-top: 20px;
+}
+
+.rich-note .dropzone .dz-preview .dz-details .dz-filename:hover span {
+    border: 1px solid rgba(200, 200, 200, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.rich-note .dropzone .dz-preview .dz-details .dz-filename:hover {
+    overflow: hidden;
+}
+
+.rich-note .dropzone .dz-preview .dz-details .dz-filename:not(:hover) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rich-note .dropzone .dz-preview .dz-details .dz-filename:not(:hover) span {
+    border: 1px solid transparent;
+}
+
+.rich-note .dropzone .dz-preview .dz-details .dz-filename span, .rich-note .dropzone .dz-preview .dz-details .dz-size span {
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 0 0.4em;
+    border-radius: 3px;
+}
+
+.rich-note .dropzone .dz-preview:hover .dz-image img {
+    -webkit-transform: scale(1.05, 1.05);
+    -moz-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+    -o-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+}
+
+.rich-note .dropzone .dz-preview .dz-image {
+    border-radius: 10px;
+    border: 1px solid #cecece;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: block;
+    z-index: 10;
+}
+
+.rich-note .dropzone .dz-preview .dz-image img {
+    display: block;
+}
+
+.rich-note .dropzone .dz-preview.dz-success .dz-success-mark {
+    -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+    -ms-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+    -o-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+    animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.rich-note .dropzone .dz-preview.dz-error .dz-error-mark {
+    opacity: 1;
+    -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+    -ms-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+    -o-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+    animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.rich-note .dropzone .dz-preview .dz-success-mark, .rich-note .dropzone .dz-preview .dz-error-mark {
+    pointer-events: none;
+    opacity: 0;
+    z-index: 500;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin-left: -27px;
+    margin-top: -27px;
+    transition: all .4s ease !important;
+}
+
+.rich-note .dropzone .dz-preview.dz-processing:not(.dz-error):hover .dz-success-mark, .rich-note .dropzone .dz-preview.dz-error.dz-processing:hover .dz-error-mark {
+    top: 40%;
+    opacity: .8;
+    transform: scale(0.5, 0.5);
+}
+
+.rich-note .dropzone .dz-preview .dz-success-mark svg, .rich-note .dropzone .dz-preview .dz-error-mark svg {
+    display: block;
+    width: 54px;
+    height: 54px;
+}
+
+.rich-note .dropzone .dz-preview.dz-processing .dz-progress {
+    opacity: 1;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.rich-note .dropzone .dz-preview.dz-complete .dz-progress {
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    -ms-transition: opacity 0.4s ease-in;
+    -o-transition: opacity 0.4s ease-in;
+    transition: opacity 0.4s ease-in;
+}
+
+.rich-note .dropzone .dz-preview:not(.dz-processing) .dz-progress {
+    -webkit-animation: pulse 6s ease infinite;
+    -moz-animation: pulse 6s ease infinite;
+    -ms-animation: pulse 6s ease infinite;
+    -o-animation: pulse 6s ease infinite;
+    animation: pulse 6s ease infinite;
+}
+
+.rich-note .dropzone .dz-preview .dz-progress {
+    opacity: 1;
+    z-index: 1000;
+    pointer-events: none;
+    position: absolute;
+    height: 10px;
+    left: 50%;
+    top: 50%;
+    margin-top: -5px;
+    width: 60px;
+    margin-left: -30px;
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-transform: scale(1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rich-note .dropzone .dz-preview .dz-progress .dz-upload {
+    background: #333;
+    background: linear-gradient(to bottom, #666, #444);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    -webkit-transition: width 300ms ease-in-out;
+    -moz-transition: width 300ms ease-in-out;
+    -ms-transition: width 300ms ease-in-out;
+    -o-transition: width 300ms ease-in-out;
+    transition: width 300ms ease-in-out;
+}
+
+.rich-note .dropzone .dz-preview.dz-error .dz-error-message {
+    display: block;
+}
+
+.rich-note .dropzone .dz-preview.dz-error:hover .dz-error-message {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.rich-note .dropzone .dz-preview .dz-error-message {
+    pointer-events: none;
+    z-index: 1000;
+    position: absolute;
+    display: none;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    font-size: 13px;
+    top: 110px;
+    left: -35px;
+    width: 215px;
+    background: #be2626;
+    background: linear-gradient(to bottom, #be2626, #a92222);
+    padding: 0.5em 1.2em;
+    color: white;
+}
+
+.rich-note .dropzone .dz-preview .dz-error-message:after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 80px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #be2626;
+}
+
+.note-uploads .dropzone .dz-message {
+    font-size: 12px;
+    border: none;
+    padding: 10px;
+}
+
+.rich-note {
+    padding: 10px;
+    background: #FFFFFF;
+}
+
+.rich-note .panel {
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    box-shadow: none;
+}
+
+.rich-note .attachment-buttons {
+    padding-top: 10px;
+}
+
+.rich-note .note-item {
+    padding: 10px;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 10px;
+}
+
+.rich-note .note-item .note {
+    padding: 10px 0;
+}
+
+.rich-note .conversation-list .conversation-text {
+    width: 80%;
+}
+
+.rich-note .conversation-list .ctext-wrap {
+    width: 100%;
+}
+
+.rich-note #note-content-update-note i {
+    color: inherit;
+    display: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    position: inherit;
+}
+
+.rich-note .conversation-text .delete-note, .rich-note .conversation-text .update-note-btn {
+    margin-left: 5px;
+    display: none;
+}
+
+.rich-note .odd .delete-note, .rich-note .btn.update-note-btn {
+    margin-right: 5px;
+}
+
+.rich-note .conversation-text:hover .delete-note, .rich-note .conversation-text:hover .update-note-btn {
+    display: inline-block;
+}
+
+.rich-note span.thumb-container {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    width: 90px;
+    overflow: hidden;
+}
+
+.conversation-list .odd .conversation-text .note-editing-area {
+    text-align: left;
+}
+
+.conversation-list .ctext-wrap a i {
+    color: #337ab7;
+    display: inline-block;
+}
+
+.conversation-list .chat-avatar a {
+    position: relative;
+}
+
+.conversation-list .chat-avatar i {
+    font-size: 18px;
+}
+
+.conversation-list .chat-avatar i.attachment-badge {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    font-size: 7px;
+    color: inherit;
+}
+
+.rich-note .note-attachment {
+    cursor: pointer;
+}
+
+/*Comment List styles*/
+.comment-list .row {
+    margin-bottom: 0px;
+}
+
+.comment-list .panel .panel-heading .panel-body {
+    padding-top: 6px;
+}
+
+.comment-list figcaption {
+    /*For wrapping text in thumbnail*/
+    word-wrap: break-word;
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+    .comment-list .arrow:after, .comment-list .arrow:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+    }
+
+    .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+        border-left: 0;
+    }
+
+    /*****Left Arrow*****/
+    /*Outline effect style*/
+    .comment-list .panel.arrow.left:before {
+        left: 0px;
+        top: 15px;
+        /*Use boarder color of panel*/
+        border-right-color: inherit;
+        border-width: 16px;
+    }
+
+    /*Background color effect*/
+    .comment-list .panel.arrow.left:after {
+        left: 1px;
+        top: 16px;
+        /*Change for different outline color*/
+        border-right-color: #FFFFFF;
+        border-width: 15px;
+    }
+
+    /*****Right Arrow*****/
+    /*Outline effect style*/
+    .comment-list .panel.arrow.right:before {
+        right: -16px;
+        top: 15px;
+        /*Use boarder color of panel*/
+        border-left-color: inherit;
+        border-width: 16px;
+    }
+
+    /*Background color effect*/
+    .comment-list .panel.arrow.right:after {
+        right: -14px;
+        top: 16px;
+        /*Change for different outline color*/
+        border-left-color: #FFFFFF;
+        border-width: 15px;
+    }
+}
+
+.note-panel {
+    padding: 0px 15px !important;
+}
+
+.comment-list .panel .panel-body,
+.comment-list .modal .modal-body {
+    padding: 0px;
+}
+
+.comment-list .comment-post {
+    margin-top: 6px;
+}
+
+.comment-list .panel .panel-body .comment-post,
+.comment-list .modal .modal-body .comment-post {
+    padding: 10px;
+}
+
+.panel .panel-body header,
+.modal .modal-body header {
+    padding: 10px 10px 0 10px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.popover {
+    width: auto;
+    max-width: 400px;
+}
+
+.popover-content .attachment a:hover {
+    color: #797979;
+}
+
+.modal .modal-content .field-note-note {
+    margin-bottom: -15px;
+}
+
+.note-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 5px;
+}
+
+.modal-body .note-list {
+    margin-bottom: 10px;
+}
+
+.modal-body .note-list {
+    height: 350px;
+}
+
+.panel-body .note-list {
+    max-height: 500px;
+}
+
+.update-group-btn .update-note {
+    margin-left: 10px;
+}
+
+.full-note .update-note-btn {
+    opacity: .6;
+    float: right;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    margin-top: 5px;
+}
+
+.full-note .update-note-btn:hover {
+    color: #000;
+}
+
+.full-note .delete-note {
+    margin-right: 5px;
+    font-size: 30px;
+}
+
+.attachment-note-list .popover-content {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.btn-note .note-count.badge {
+    margin-left: 0 !important;
+    top: -10px;
+    opacity: 0.8;
+    left: -15px;
+}

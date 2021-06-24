@@ -1,0 +1,18 @@
+
+<div fxLayout="column" class="popular-products" ngClass.gt-md="m-0">
+    <div class="title-header">
+        <h4 class="title">PROIZVODI NA AKCIJI</h4>
+    </div>
+      <mat-list class="reviews">
+         <mat-list-item class="content"  *ngFor="let product of products | slice:0:3">
+          <div class="media">  <a [routerLink]="['/pocetna/left-sidebar/proizvod', product.id]">
+              <img class="img-fluid" [src]="product.image_url" alt="{{product.name}}">
+            </a>
+          </div>
+             <div class="info align-self-center">
+               <a [routerLink]="['/pocetna/proizvod', product.id]"><h5>{{product.name}}</h5></a>
+               <p class="price">{{product.discount_price | currency:productsService?.currency:'symbol'}}</p>
+             </div>
+          </mat-list-item>
+      </mat-list>
+  </div>

@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="cart-wrapper sec-padding">
+        <div fxLayout="column" fxLayoutAlign="space-around center" *ngIf="!shoppingCartItems.length">
+            <mat-chip-list>
+                <mat-chip color="warn" selected="true">VAŠA KORPA JE PRAŽNA.</mat-chip>
+            </mat-chip-list>
+            <div>
+                <a mat-raised-button color="primary" class="btn-project mt-20">Nastavite kupovinu</a>
+            </div>
+        </div>
+        <mat-card *ngIf="shoppingCartItems.length && !isMobile" class="p-0">
+            <div class="mat-table cart-table">
+                <div class="mat-header-row">
+                    <div class="mat-header-cell">Proizvod</div>
+                    <div class="mat-header-cell">Ime</div>
+                    <div class="mat-header-cell">Cijena</div>
+                    <div class="mat-header-cell">Količina</div>
+                    <div class="mat-header-cell">Ukupno</div>
+                    <div class="mat-header-cell">Ukloni</div>
+                </div>
+                <div *ngFor="let item of shoppingCartItems" class="mat-row">
+                    <div class="mat-cell"><img [src]="item.product.image_url" alt="{{item.product.name}}"></div>
+                    <div class="mat-cell"><a class="product-name">{{item.product.name}}</a></div>
+                    <div class="mat-cell price">{{item.product.discount_price | number : '1.2-2'}}</div>
+                    <div class="mat-cell text-muted">
+                        <div fxLayout="row" fxLayout.xs="column" class="text-muted">
+                            <div fxLayout="row" fxLayoutAlign="center start">
+                                <button mat-icon-button matTooltip="Remove" (click)="decrement(item.product)">
+                                    <mat-icon>remove</mat-icon>
+                                </button>
+                                <input type="text" name="quantity" [(ngModel)]="item.quantity" disabled
+                                       class="form-control input-number">
+                                <button mat-icon-button matTooltip="Add" (click)="increment(item.product)">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mat-cell total">{{item.product.discount_price * item.quantity | number : '1.2-2' }}</div>
+                    <div class="mat-cell text-center">
+                        <div class="p-1">
+                            <mat-icon (click)="removeItem(item)">close</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="mat-row">
+                    <div class="mat-cell"><a mat-raised-button color="primary" class="btn-project"
+                                             [routerLink]="['/pocetna']" routerLinkActive="router-link-active">
+                        Nastavite kupovinu
+                    </a></div>
+                    <div class="mat-cell"></div>
+                    <div class="mat-cell"></div>
+                    <div class="mat-cell text-right">
+                        <div fxLayout="column" fxLayoutAlign="center end" class="grand-total px-2">
+                            <span class="new-price">Ukupno: {{getTotal()  | async | currency:productsService?.currency:'symbol'}}</span>
+                        </div>
+                    </div>
+                    <div class="mat-cell text-center">
+                        <a mat-raised-button color="primary" class="btn-project"
+                           [routerLink]="['/info/kupovina']"
+                           routerLinkActive="router-link-active">
+                            Nastavite narudžbu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+        <mat-card *ngIf="shoppingCartItems.length && isMobile" class="mobile">
+            <div *ngFor="let item of shoppingCartItems" class="cart-item">
+                <div fxLayout="row" fxLayoutAlign="space-between start">
+                    <img class="mw-75" [src]="item.product.image_url" alt="{{item.product.name}}">
+                    <div fxLayout="column" fxLayoutAlign="space-between start">
+                        <p class="font-weight-bold">{{item.product.name}}</p>
+                        <p>
+                            <span fxLayout="row" class="mobile-quantity-change"
+                                  fxLayoutAlign="center center">
+                                <button mat-icon-button matTooltip="Remove" (click)="decrement(item.product)">
+                                    <mat-icon>remove</mat-icon>
+                                </button>
+                                <input type="text" name="quantity" [(ngModel)]="item.quantity" disabled
+                                       class="form-control input-number">
+                                <button mat-icon-button matTooltip="Add" (click)="increment(item.product)">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </span>
+                            {{item.product.discount_price | currency: productsService?.currency: 'symbol'}}
+                        </p>
+
+                        <p class="mat-cell total">
+                            Ukupno: {{item.product.price * item.quantity | currency: productsService?.currency }}</p>
+                    </div>
+                    <div class="p-1">
+                        <mat-icon class="close" (click)="removeItem(item)">close</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <span class="new-price red">TOTAL: {{getTotal()  | async | currency:productsService?.currency:'symbol'}}</span>
+            <a mat-raised-button color="primary" class="btn-project"
+               [routerLink]="['/info/kupovina']"
+               routerLinkActive="router-link-active">
+                Nastavite narudžbu
+            </a>
+        </mat-card>
+    </div>
+</div>

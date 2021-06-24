@@ -1,0 +1,97 @@
+<div class="left-sidebar-wrapper sec-padding">
+    <div class="container">
+        <div class="sidebar-wrapper" fxLayout='row' fxLayout.lt-md="column-reverse">
+            <div fxFlex="25" fxFlex.lt-sm="100" class="filter-sidenav" perfectScrollbar>
+                <div class="toggles-wrapper" fxLayout="column" fxLayout.lt-md="column">
+                    <div class="toggles" fxFlex.lt-md="100">
+                        <mat-accordion>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        <span>Kategorije</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <app-categories></app-categories>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        <span>Proizvođači</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+
+                                <div class="brands">
+                                    <app-brands [brands]="brands" (brandChanged)="onBrandsChanged($event)"></app-brands>
+                                </div>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                    <div class="price-filter" fxLayout="row" fxLayoutAlign="center center">
+                        <app-price [min]="minPrice" [max]="maxPrice" *ngIf="this.minPrice && this.maxPrice"
+                                   (priceFilters)="updatePriceFilters($event)"></app-price>
+                    </div>
+                    <div class="new-used" fxLayout="row" fxLayoutAlign="center center">
+                        <mat-radio-group [formControl]="newUsedControl" name="newUsed" aria-label="Novo / Korišteno">
+                            <mat-radio-button value="false">Novo</mat-radio-button>
+                            <mat-radio-button value="true">Korišteno</mat-radio-button>
+                            <mat-radio-button value="all">Sve</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="popular-products" fxFlex.lt-md="100">
+                        <app-popular-products></app-popular-products>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex="75" fxFlex.lt-sm="100" class="all-products" ngClass.gt-sm="p-left">
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center" fxHide.lt-md="true"
+                     class="filter-row mat-elevation-z1 text-muted">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Pretraga</mat-label>
+                        <input [formControl]="innerSearchControl" matInput>
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                    <button *ngIf="!sidenavOpen" mat-icon-button (click)="sidenav.toggle()">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <div>
+                        <select (change)="onChangeSorting($event.target.value)">
+                            <option value="asc">Sortiranje</option>
+                            <option value="a-z">A-Ž</option>
+                            <option value="z-a">Ž-A</option>
+                            <option value="low">Cijena, prvo najniža</option>
+                            <option value="high">Cijena, prvo najviša</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button mat-icon-button (click)="changeViewType('list', 50)">
+                            <mat-icon>view_list</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="changeViewType('list', 33.3)">
+                            <mat-icon>view_module</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="changeViewType('list', 25)">
+                            <mat-icon>view_comfy</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <div [@Animation]="animation" fxLayout="row wrap" class="products-wrapper">
+                    <div *ngFor="let products of allItems | filter: {is_used: newUsedControl.value, name: innerSearchControl.value, brand: this.selectedBrand} | orderBy:sortByOrder | paginate: {itemsPerPage: 20, currentPage: page}"
+                         fxFlex="100" [fxFlex.gt-sm]="viewCol" fxFlex.sm="50" class="col">
+                        <div class="product-box">
+                            <app-product [product]="products"></app-product>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="totalPages > 1" fxLayout="row wrap ">
+                    <div fxFlex="100">
+                        <mat-card class="p-0 text-center no-shadow">
+                            <pagination-controls class="product-pagination" autoHide="true" maxSize="5"
+                                                 (pageChange)="onPageChanged($event)"></pagination-controls>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ngx-json-ld *ngIf="breadcrumbs" [json]="breadcrumbs"></ngx-json-ld>

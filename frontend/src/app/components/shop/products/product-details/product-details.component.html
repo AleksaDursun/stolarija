@@ -1,0 +1,155 @@
+<div class="container">
+    <div class="details-wrapper sec-padding">
+        <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="80">
+            <div fxLayout="row wrap" fxFlex="100" fxFlex.gt-md="100" fxFlex.gt-sm="100">
+                <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="45">
+                    <mat-card class="product-image">
+                        <div>
+                            <button mat-icon-button fxHide="false" fxHide.gt-md>
+                                <mat-icon>fullscreen</mat-icon>
+                            </button>
+                            <img [src]="product.image_url" alt="{{product.name}}"/>
+                        </div>
+                        <a (click)="openProductDialog(product, bigProductImageIndex)" style="cursor: pointer;">
+                            <mat-icon>zoom_in</mat-icon>
+                        </a>
+                    </mat-card>
+                </div>
+                <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="55" ngClass.gt-sm="px-3 m-0" ngClass.sm="mt-2"
+                     ngClass.xs="mt-2">
+
+                    <div class="product-right">
+                        <div class="product-details">
+                            <h1>{{product.name}}</h1>
+                            <h4 *ngIf="product.discount">
+                                <del>{{product.price | price:productsService?.currency:'symbol'}}</del>
+                            </h4>
+                            <h3 class="price"
+                                *ngIf="!productsService?.catalogMode">{{product.discount_price | price:productsService?.currency:'symbol'}}</h3>
+                            <p class="text-muted description">{{product.short_description}}</p>
+                        </div>
+                        <div class="py-1 mt-15">
+                            <p>
+                                <span class="text-muted fw-500">Dostupnost: </span>
+                                <span class="avalibility"
+                                      *ngIf="counter < product.quantity"><span>Na stanju</span></span>
+                                <span class="avalibility" *ngIf="!product.quantity"><span class="red">Nema zaliha</span></span>
+                                <span class="avalibility" *ngIf="counter == product.quantity"><span
+                                        class="red">Dostupno {{product.quantity}}</span></span>
+                            </p>
+                        </div>
+                        <div class="quantity">
+                            <span class="text-muted fw-500">Količina</span>
+                            <div fxLayout="row" fxLayout.xs="column" class="text-muted">
+                                <div fxLayout="row" fxLayoutAlign="center start">
+                                    <button mat-icon-button matTooltip="Remove" (click)="decrement()">
+                                        <mat-icon>remove</mat-icon>
+                                    </button>
+                                    <input type="text" name="quantity" value="{{counter}}"
+                                           class="form-control input-number">
+                                    <button mat-icon-button matTooltip="Add" (click)="increment()">
+                                        <mat-icon>add</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttons mt-20">
+                            <button mat-raised-button color="primary" [disabled]="!product?.quantity"
+                                    class="btn-project mr-10" (click)="addToCart(product, counter)">DODAJ U KOŠARICU
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-wrapper" fxFlex="100" fxFlex.md="75" *ngIf="product?.description">
+                <mat-card>
+                    <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
+                        <mat-tab label="Opis">
+                            <div class="full-desc lh">
+                                <p class="text-muted" [innerHTML]="product.description"></p>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-card>
+            </div>
+
+            <div class="products sec-padding">
+                <div class="title">
+                    <h4 class="widget-title">Slični proizvodi</h4>
+                </div>
+                <app-product-carousel-three [product]="products"></app-product-carousel-three>
+            </div>
+        </div>
+        <div fxLayout="row wrap" fxHide fxShow.gt-sm fxFlex="100" fxFlex.gt-sm="22">
+            <div fxFlex="100">
+                <div fxLayout="row wrap" class="info-bar" ngClass.gt-md="m-0">
+                    <!--             <div fxFlex="100" >-->
+                    <!--                <mat-card class="light-block" fxLayout="row"  fxLayoutAlign="start center">-->
+                    <!--                   <mat-icon class="mat-icon-xlg  m-0">card_giftcard</mat-icon>-->
+                    <!--                   <div class="content ml-10">-->
+                    <!--                      <p>BONUS PLUS</p>-->
+                    <!--                      <span class="text-muted m-0">Get a bonus plus for buying more that three products</span>-->
+                    <!--                   </div>-->
+                    <!--                </mat-card>-->
+                    <!--             </div>-->
+                    <div fxFlex="100">
+                        <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="mat-icon-xlg  m-0">local_shipping</mat-icon>
+                            <div class="content ml-10">
+                                <p>BESPLATNA DOSTAVA</p>
+                                <span class="text-muted m-0">Besplatna dostava za NOVU robu preko 200 KM, te za KORIŠTENU robu preko 100 KM.</span>
+                            </div>
+                        </mat-card>
+                    </div>
+                    <div fxFlex="100" class="mt-16">
+                        <mat-card class="light-block" fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="mat-icon-xlg m-0">monetization_on</mat-icon>
+                            <div class="content ml-10">
+                                <p>GARANCIJA POVRATA NOVCA</p>
+                                <span class="text-muted m-0">100% Vraćamo novac</span>
+                            </div>
+                        </mat-card>
+                    </div>
+                    <div fxFlex="100" class="mt-16">
+                        <mat-card class="light-block no-border" fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="mat-icon-xlg m-0">history</mat-icon>
+                            <div class="content ml-10">
+                                <p>ONLINE PODRŠKA</p>
+                                <span class="text-muted m-0">Kontaktirajte nas preko facebook live chat-a ili preko jednog od brojeva na našoj <a
+                                        routerLink="/info/kontakt">KONTAKT</a> stranici</span>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div>
+                <!--          <mat-toolbar class="sale-baner" color="primary" >-->
+                <!--            <div class="sale-widget">-->
+                <!--               <span class="sale-widget1">-->
+                <!--                  BIG SALLE-->
+                <!--              </span>-->
+                <!--              <span class="sale-widget2">-->
+                <!--                 DO NOT MISS IT!-->
+                <!--             </span>-->
+                <!--              <span class="discount">60</span>-->
+                <!--              <div class="percent">-->
+                <!--                <span>%</span>off-->
+                <!--              </div>-->
+                <!--              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nects.</p>-->
+                <!--            </div>-->
+                <!--             <mat-toolbar-row>-->
+                <!--              -->
+                <!--             </mat-toolbar-row>-->
+                <!--         -->
+                <!--          </mat-toolbar> -->
+
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="py-2 mt-2">
+       <h2>Related Products</h2>
+       <div class="divider"></div>
+       <app-products-carousel [products]="relatedProducts"></app-products-carousel>
+       </div> -->
+    <ngx-json-ld *ngIf="product" [json]="getProductSchema(product)"></ngx-json-ld>
+    <ngx-json-ld *ngIf="product" [json]="getBreadcrumbSchema(product)"></ngx-json-ld>

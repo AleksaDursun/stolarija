@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /info/404/
+Sitemap: https://umjetnostudrvetu.ba/sitemap.xml

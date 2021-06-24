@@ -1,0 +1,47 @@
+##############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+  mariadb:
+    image: mariadb:10.4
+    container_name: uud-mariadb-1
+    working_dir: /application
+    volumes:
+      - .:/application
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=umjetnost_u_drvetu
+      - MYSQL_USER=umjetnost_u_drvetu
+      - MYSQL_PASSWORD=root
+    ports:
+      - "3306:3306"
+
+  beanstalkd:
+    restart: always
+    image: schickling/beanstalkd:latest
+    container_name: uud-beanstalkd
+    volumes:
+      - ./phpdocker/beanstalkd:/etc/default
+    ports:
+      - "11301:11301"
+
+  webserver:
+    restart: always
+    image: nginx:alpine
+    container_name: uud-webserver-1
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+
+  php-fpm:
+    build: phpdocker/php-fpm
+    container_name: uud-php-fpm-1
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini

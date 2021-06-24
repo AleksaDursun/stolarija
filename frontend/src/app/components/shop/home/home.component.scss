@@ -1,0 +1,43 @@
+@import "src/assets/scss/theme/variables";
+.slider-categories {
+  @media screen and (max-width: 959px){
+    display: none;
+  }
+}
+
+.title {
+  color: white!important;
+  background: $theme-main!important;
+}
+
+.container {
+  @media screen and (max-width: 959px) {
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+}
+
+.max-height {
+  max-height: 480px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* width */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

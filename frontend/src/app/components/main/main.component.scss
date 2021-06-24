@@ -1,0 +1,10 @@
+@import "src/assets/scss/theme/variables";
+h4 {
+  color: $grey3;
+  font-size: 16px;
+}
+
+.top-bar, .main-topbar {
+  max-height: 32px;
+  min-height: unset!important;
+}

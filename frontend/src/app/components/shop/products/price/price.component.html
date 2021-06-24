@@ -1,0 +1,10 @@
+<div class="price-slider">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="text-muted">
+      <span>Od: <b>{{priceFrom | price: productService.currency}}</b></span>
+      <span>Do: <b>{{priceTo | price: productService.currency}}</b></span>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-price">
+      <mat-slider (change)="priceFilter()" color="primary" [max]="max" [min]="min" thumb-label="true" [(ngModel)]="priceFrom"></mat-slider>
+      <mat-slider (change)="priceFilter()" color="warn" [max]="max" [min]="min" thumb-label="true" [(ngModel)]="priceTo"></mat-slider>
+  </div>
+</div>
