@@ -18,14 +18,6 @@ services:
     ports:
       - "3306:3306"
 
-  beanstalkd:
-    restart: always
-    image: schickling/beanstalkd:latest
-    container_name: uud-beanstalkd
-    volumes:
-      - ./phpdocker/beanstalkd:/etc/default
-    ports:
-      - "11301:11301"
 
   webserver:
     restart: always
