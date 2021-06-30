@@ -1,0 +1,335 @@
+$fa-font-display: block !default;
+$fa-font-path: "../webfonts" !default;
+$fa-css-prefix: fa !default;
+$fa-primary-opacity: 1 !default;
+$fa-secondary-opacity: .4 !default;
+$fa-inverse: #fff !default;
+$fa-var-search: \f002;
+$fa-var-facebook-f: \f39e;
+$fa-var-instagram: \f16d;
+$fa-var-twitter: \f099;
+$fa-var-heart: \f004;
+$fa-var-shopping-cart: \f07a;
+$fa-var-chevron-down: \f078;
+$fa-var-chevron-left: \f053;
+$fa-var-chevron-right: \f054;
+$fa-var-chevron-circle-up: \f139;
+$fa-var-cc-amex: \f1f3;
+$fa-var-cc-apple-pay: \f416;
+$fa-var-cc-diners-club: \f24c;
+$fa-var-cc-discover: \f1f2;
+$fa-var-cc-jcb: \f24b;
+$fa-var-cc-mastercard: \f1f1;
+$fa-var-cc-paypal: \f1f4;
+$fa-var-cc-stripe: \f1f5;
+$fa-var-cc-visa: \f1f0;
+$fa-var-google: \f1a0;
+$fa-var-times: \f00d;
+$fa-var-user: \f007;
+$fa-var-info-circle: \f05a;
+$fa-var-plus: \f067;
+$fa-var-minus: \f068;
+$fa-var-trash-alt: \f2ed;
+$fa-var-star: \f005;
+$fa-var-expand-alt: \f424;
+$fa-var-bars: \f0c9;
+$fa-var-pinterest: \f0d2;
+$fa-var-angle-left: \f104;
+$fa-var-angle-right: \f105;
+$fa-var-shopping-bag: \f290;
+$fa-var-cart-plus: \f217;
+
+
+@function fa-content($fa-var) {
+  @return unquote("\"#{ $fa-var }\"");
+}
+
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal !important;
+  font-weight: 400;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-brands-400.eot');
+  src: url('#{$fa-font-path}/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+  url('#{$fa-font-path}/fa-brands-400.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-brands-400.woff') format('woff'),
+  url('#{$fa-font-path}/fa-brands-400.ttf') format('truetype'),
+  url('#{$fa-font-path}/fa-brands-400.svg#fontawesome') format('svg');
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400;
+  font-style: normal !important;
+}
+
+
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal !important;
+  font-weight: 400;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-regular-400.eot');
+  src: url('#{$fa-font-path}/fa-regular-400.eot?#iefix') format('embedded-opentype'),
+  url('#{$fa-font-path}/fa-regular-400.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-regular-400.woff') format('woff'),
+  url('#{$fa-font-path}/fa-regular-400.ttf') format('truetype'),
+  url('#{$fa-font-path}/fa-regular-400.svg#fontawesome') format('svg');
+}
+
+.far {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 400;
+  font-style: normal !important;
+}
+
+
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal !important;
+  font-weight: 900;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-solid-900.eot');
+  src: url('#{$fa-font-path}/fa-solid-900.eot?#iefix') format('embedded-opentype'),
+  url('#{$fa-font-path}/fa-solid-900.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-solid-900.woff') format('woff'),
+  url('#{$fa-font-path}/fa-solid-900.ttf') format('truetype'),
+  url('#{$fa-font-path}/fa-solid-900.svg#fontawesome') format('svg');
+}
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 900;
+  font-style: normal !important;
+}
+
+
+@font-face {
+  font-family: 'Font Awesome 5 Pro';
+  font-style: normal !important;
+  font-weight: 300;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-light-300.eot');
+  src: url('#{$fa-font-path}/fa-light-300.eot?#iefix') format('embedded-opentype'),
+  url('#{$fa-font-path}/fa-light-300.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-light-300.woff') format('woff'),
+  url('#{$fa-font-path}/fa-light-300.ttf') format('truetype'),
+  url('#{$fa-font-path}/fa-light-300.svg#fontawesome') format('svg');
+}
+
+.fal {
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 300;
+  font-style: normal !important;
+}
+
+
+@font-face {
+  font-family: 'Font Awesome 5 Duotone';
+  font-style: normal !important;
+  font-weight: 900;
+  font-display: $fa-font-display;
+  src: url('#{$fa-font-path}/fa-duotone-900.eot');
+  src: url('#{$fa-font-path}/fa-duotone-900.eot?#iefix') format('embedded-opentype'),
+  url('#{$fa-font-path}/fa-duotone-900.woff2') format('woff2'),
+  url('#{$fa-font-path}/fa-duotone-900.woff') format('woff'),
+  url('#{$fa-font-path}/fa-duotone-900.ttf') format('truetype'),
+  url('#{$fa-font-path}/fa-duotone-900.svg#fontawesome') format('svg');
+}
+
+.fad {
+  position: relative;
+  font-family: 'Font Awesome 5 Duotone';
+  font-weight: 900;
+  font-style: normal !important;
+}
+
+.fad:before {
+  position: absolute;
+  font-style: normal !important;
+  color: var(--#{$fa-css-prefix}-primary-color, inherit);
+  opacity: $fa-primary-opacity;
+  opacity: var(--#{$fa-css-prefix}-primary-opacity, #{$fa-primary-opacity});
+}
+
+.fad:after {
+  font-style: normal !important;
+  color: var(--#{$fa-css-prefix}-secondary-color, inherit);
+  opacity: $fa-secondary-opacity;
+  opacity: var(--#{$fa-css-prefix}-secondary-opacity, #{$fa-secondary-opacity});
+}
+
+.#{$fa-css-prefix}-swap-opacity .fad:before,
+.fad.#{$fa-css-prefix}-swap-opacity:before {
+  font-style: normal !important;
+  opacity: $fa-secondary-opacity;
+  opacity: var(--#{$fa-css-prefix}-secondary-opacity, #{$fa-secondary-opacity});
+}
+
+.#{$fa-css-prefix}-swap-opacity .fad:after,
+.fad.#{$fa-css-prefix}-swap-opacity:after {
+  font-style: normal !important;
+  opacity: $fa-primary-opacity;
+  opacity: var(--#{$fa-css-prefix}-primary-opacity, #{$fa-primary-opacity});
+}
+
+.fad.#{$fa-css-prefix}-inverse {
+  font-style: normal !important;
+  color: $fa-inverse;
+}
+
+.fad.#{$fa-css-prefix}-stack-1x, .fad.#{$fa-css-prefix}-stack-2x {
+  font-style: normal !important;
+  position: absolute;
+}
+
+.fad.#{$fa-css-prefix}-stack-1x:before,
+.fad.#{$fa-css-prefix}-stack-2x:before,
+.fad.#{$fa-css-prefix}-fw:before {
+  font-style: normal !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fad.#{$fa-css-prefix}-user-circle:after {
+  content: fa-content(\10f2bd);
+}
+
+.#{$fa-css-prefix}-search:before {
+  content: fa-content($fa-var-search);
+}
+
+.#{$fa-css-prefix}-facebook-f:before {
+  content: fa-content($fa-var-facebook-f);
+}
+
+.#{$fa-css-prefix}-instagram:before {
+  content: fa-content($fa-var-instagram);
+}
+
+.#{$fa-css-prefix}-twitter:before {
+  content: fa-content($fa-var-twitter);
+}
+
+.#{$fa-css-prefix}-heart:before {
+  content: fa-content($fa-var-heart);
+}
+
+.#{$fa-css-prefix}-shopping-cart:before {
+  content: fa-content($fa-var-shopping-cart);
+}
+
+.#{$fa-css-prefix}-chevron-down:before {
+  content: fa-content($fa-var-chevron-down);
+}
+
+.#{$fa-css-prefix}-chevron-circle-up:before {
+  content: fa-content($fa-var-chevron-circle-up);
+}
+
+.#{$fa-css-prefix}-cc-amex:before {
+  content: fa-content($fa-var-cc-amex);
+}
+
+.#{$fa-css-prefix}-cc-apple-pay:before {
+  content: fa-content($fa-var-cc-apple-pay);
+}
+
+.#{$fa-css-prefix}-cc-diners-club:before {
+  content: fa-content($fa-var-cc-diners-club);
+}
+
+.#{$fa-css-prefix}-cc-discover:before {
+  content: fa-content($fa-var-cc-discover);
+}
+
+.#{$fa-css-prefix}-cc-jcb:before {
+  content: fa-content($fa-var-cc-jcb);
+}
+
+.#{$fa-css-prefix}-cc-mastercard:before {
+  content: fa-content($fa-var-cc-mastercard);
+}
+
+.#{$fa-css-prefix}-cc-paypal:before {
+  content: fa-content($fa-var-cc-paypal);
+}
+
+.#{$fa-css-prefix}-cc-stripe:before {
+  content: fa-content($fa-var-cc-stripe);
+}
+
+.#{$fa-css-prefix}-cc-visa:before {
+  content: fa-content($fa-var-cc-visa);
+}
+
+.#{$fa-css-prefix}-google:before {
+  content: fa-content($fa-var-google);
+}
+
+.#{$fa-css-prefix}-times:before {
+  content: fa-content($fa-var-times);
+}
+
+.#{$fa-css-prefix}-user:before {
+  content: fa-content($fa-var-user);
+}
+
+.#{$fa-css-prefix}-info-circle:before {
+  content: fa-content($fa-var-info-circle);
+}
+
+.#{$fa-css-prefix}-plus:before {
+  content: fa-content($fa-var-plus);
+}
+
+.#{$fa-css-prefix}-minus:before {
+  content: fa-content($fa-var-minus);
+}
+
+.#{$fa-css-prefix}-trash-alt:before {
+  content: fa-content($fa-var-trash-alt);
+}
+
+.#{$fa-css-prefix}-chevron-left:before {
+  content: fa-content($fa-var-chevron-left);
+}
+
+.#{$fa-css-prefix}-chevron-right:before {
+  content: fa-content($fa-var-chevron-right);
+}
+
+.#{$fa-css-prefix}-star:before {
+  content: fa-content($fa-var-star);
+}
+
+.#{$fa-css-prefix}-pinterest:before {
+  content: fa-content($fa-var-pinterest);
+}
+
+.#{$fa-css-prefix}-expand-alt:before {
+  content: fa-content($fa-var-expand-alt);
+}
+
+.#{$fa-css-prefix}-bars:before {
+  content: fa-content($fa-var-bars);
+}
+
+
+.#{$fa-css-prefix}-angle-left:before {
+  content: fa-content($fa-var-angle-left);
+}
+
+.#{$fa-css-prefix}-angle-right:before {
+  content: fa-content($fa-var-angle-right);
+}
+
+.#{$fa-css-prefix}-shopping-bag:before {
+  content: fa-content($fa-var-shopping-bag);
+}
+
+.#{$fa-css-prefix}-cart-plus:before {
+  content: fa-content($fa-var-cart-plus);
+}

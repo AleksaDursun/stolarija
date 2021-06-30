@@ -40,7 +40,7 @@ $this->registerJs("
             editor.setData(window.allInOne);
             break;
         }
-     });   
+     });
 
 ");
 ?>

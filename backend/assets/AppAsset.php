@@ -27,5 +27,6 @@ class AppAsset extends AssetBundle
         'yii\bootstrap4\BootstrapPluginAsset',
         'backend\assets\FontAwesomeAsset',
         'notes\widgets\notes\RichNoteAsset',
+        '\dosamigos\select2\Select2Asset'
     ];
 }

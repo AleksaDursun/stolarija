@@ -158,7 +158,7 @@ gulp.task('build-backend', function (callback) {
     'copy:css',
     'copy:js',
     'concat-backend:js',
-    // 'minify-backend:js',
+    'minify-backend:js',
     'concat-backend:css',
     'minify-backend:css',
     callback
