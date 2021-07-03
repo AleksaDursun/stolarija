@@ -78,18 +78,6 @@ $this->registerJs("
                         <div class="col-md-12">
                             <?= $form->field($model, 'category_name')->textInput() ?>
                         </div>
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'price_from')->textInput(['type' => 'number']) ?>
-                        </div>
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'price_to')->textInput(['type' => 'number']) ?>
-                        </div>
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'selling_price_from')->textInput(['type' => 'number']) ?>
-                        </div>
-                        <div class="col-md-6">
-                            <?= $form->field($model, 'selling_price_to')->textInput(['type' => 'number']) ?>
-                        </div>
                         <div class="col-12">
                             <?= $form->field($model, 'is_active')->label('Status')->dropDownList(
                                 ['0' => 'Inactive', '1' => 'Active'], ['prompt' => '']) ?>

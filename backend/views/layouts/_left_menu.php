@@ -59,32 +59,28 @@ $showSubscribers  = $isSubscribe ? 'show' : '';
             'activateItems' => true,
             'items' => [
                 [
-                    'label' => '<i class="fal fa-mobile-android"></i><p>Proizvodi</p>',
+                    'label' => '<i class="fal fa-chair"></i><p>Proizvodi</p>',
                     'url' => ['/product/index']
                 ],
                 [
                     'label' => '<i class="fal fa-tags"></i><p>Kategorije</p>',
                     'url' => ['/category/index']
                 ],
-                [
-                    'label' => '<i class="fal fa-shopping-cart"></i><p>Narudžbe</p>',
-                    'url' => ['/order/index']
-                ],
-                [
-                    'label' => '<i class="fal fa-user-chart"></i><p>Preplatnici<b class="caret"></b></p>',
-                    'template' => '<a class="nav-link" href="#navbar-subscribers" data-toggle="collapse" aria-controls="navbar-subscribers">{label}</a>',
-                    'submenuTemplate' => "<div class='collapse {$showSubscribers}' id='navbar-subscribers'><ul class='nav'>{items}</ul></div>",
-                    'items' => [
-                        [
-                            'label' => '<i class="fal fa-newspaper"></i><p>Newsletters</p>',
-                            'url' => ['/newsletter/index']
-                        ],
-                        [
-                            'label' => '<i class="fal fa-user-friends"></i><p>Lista preplatnika</p>',
-                            'url' => ['/subscriber/index']
-                        ],
-                    ],
-                ],
+//                [
+//                    'label' => '<i class="fal fa-user-chart"></i><p>Preplatnici<b class="caret"></b></p>',
+//                    'template' => '<a class="nav-link" href="#navbar-subscribers" data-toggle="collapse" aria-controls="navbar-subscribers">{label}</a>',
+//                    'submenuTemplate' => "<div class='collapse {$showSubscribers}' id='navbar-subscribers'><ul class='nav'>{items}</ul></div>",
+//                    'items' => [
+//                        [
+//                            'label' => '<i class="fal fa-newspaper"></i><p>Newsletters</p>',
+//                            'url' => ['/newsletter/index']
+//                        ],
+//                        [
+//                            'label' => '<i class="fal fa-user-friends"></i><p>Lista preplatnika</p>',
+//                            'url' => ['/subscriber/index']
+//                        ],
+//                    ],
+//                ],
                 [
                     'label' => '<i class="fal fa-cogs"></i><p>Administration<b class="caret"></b></p>',
                     'template' => '<a class="nav-link" href="#navbar-administration" data-toggle="collapse" aria-controls="navbar-administration">{label}</a>',
@@ -96,11 +92,11 @@ $showSubscribers  = $isSubscribe ? 'show' : '';
                             'url' => ['/user/index'],
                             'visible' => $webUser->can(RbacHelper::PERM_ADMIN)
                         ],
-                        [
-                            'label' => '<i class="fal fa-mailbox"></i><p>Emails Log</p>',
-                            'url' => ['/email-log/index'],
-                            'visible' => $webUser->can(RbacHelper::PERM_ADMIN)
-                        ],
+//                        [
+//                            'label' => '<i class="fal fa-mailbox"></i><p>Emails Log</p>',
+//                            'url' => ['/email-log/index'],
+//                            'visible' => $webUser->can(RbacHelper::PERM_ADMIN)
+//                        ],
                     ],
                 ],
             ],

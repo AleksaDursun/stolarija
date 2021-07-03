@@ -17,62 +17,60 @@ $type = Yii::$app->controller->id;
 ?>
 
 <div class="publication-form">
-    <?php $form = ActiveForm::begin([
-        'id' => $model->getFormId(),
-        'options' => ['enctype' => 'multipart/form-data'],
-        'action' => $model->isNewRecord ? ['/product/create',] : ['/product/update', 'id' => $model->id],
-    ]); ?>
+  <?php $form = ActiveForm::begin([
+    'id' => $model->getFormId(),
+    'options' => ['enctype' => 'multipart/form-data'],
+    'action' => $model->isNewRecord ? ['/product/create',] : ['/product/update', 'id' => $model->id],
+  ]); ?>
 
-    <div class="row">
-        <div class="col-md-6">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-        </div>
-
-        <div class="col-md-6">
-            <?= $form->field($model, 'category_id')->widget(Select2::class,
-                Select2Helper::getProductCategoryConfig($model, 'category_id', false))->label('Kategorija') ?>
-        </div>
-
-        <div class="col-md-4">
-            <?= $form->field($model, 'selling_price')->widget(MoneyInput::class)->label('Prodajna Cijena')?>
-        </div>
-
-        <div class="col-md-4">
-            <?= $form->field($model, 'sale')->widget(MoneyInput::class, [
-                'icon' => '<i class="fal fa-piggy-bank"></i>'
-            ])->label('Akcija u procentima')?>
-        </div>
-
-        <div class="col-md-4">
-            <?= $form->field($model, 'is_used')->checkbox()->label(false) ?>
-        </div>
-
-        <div class="col-12">
-            <?= $form->field($model, 'short_description')->textarea(['rows' => 6]) ?>
-        </div>
-
-        <div class="col-12">
-            <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-        </div>
-
-        <div class="col-12">
-            <?= $form->field($model, 'image_id')->widget(DropzoneInput::class, [
-                'message' => 'Drag & drop file or click to upload ',
-                'fileAttribute' => 'image',
-                'clientOptions' => [
-                    'acceptedFiles' => 'image/*',
-                    'uploadMultiple' => false,
-                    'maxFiles' => 1,
-                ]
-            ])->label('Product image'); ?>
-        </div>
-
-        <div class="col-12 text-right mt-4">
-            <?= Html::button(Yii::t('app', 'Cancel'), ['class' => 'btn btn-link ml-auto', 'data-dismiss' => 'modal']) ?>
-            <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-primary btn-modal-control-submit', 'data-form-id' => $model->getFormId()]) ?>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <div class="col-md-6">
+      <?= $form->field($model, 'name_en')->textInput(['maxlength' => true]) ?>
+    </div>
+
+    <div class="col-md-6">
+      <?= $form->field($model, 'name_de')->textInput(['maxlength' => true]) ?>
+    </div>
+
+    <div class="col-md-6">
+      <?= $form->field($model, 'category_id')->widget(Select2::class,
+        Select2Helper::getProductCategoryConfig($model, 'category_id', false))->label('Kategorija') ?>
+    </div>
+
+    <div class="col-12">
+      <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    </div>
+
+    <div class="col-12">
+      <?= $form->field($model, 'description_en')->textarea(['rows' => 6]) ?>
+    </div>
+
+    <div class="col-12">
+      <?= $form->field($model, 'description_de')->textarea(['rows' => 6]) ?>
+    </div>
+
+    <div class="col-12">
+      <?= $form->field($model, 'image_id')->widget(DropzoneInput::class, [
+        'message' => 'Drag & drop file or click to upload ',
+        'fileAttribute' => 'image',
+        'clientOptions' => [
+          'acceptedFiles' => 'image/*',
+          'uploadMultiple' => false,
+          'maxFiles' => 1,
+        ]
+      ])->label('Product image'); ?>
+    </div>
+
+    <div class="col-12 text-right mt-4">
+      <?= Html::button(Yii::t('app', 'Cancel'), ['class' => 'btn btn-link ml-auto', 'data-dismiss' => 'modal']) ?>
+      <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-primary btn-modal-control-submit', 'data-form-id' => $model->getFormId()]) ?>
+    </div>
+  </div>
+
+  <?php ActiveForm::end(); ?>
 
 </div>

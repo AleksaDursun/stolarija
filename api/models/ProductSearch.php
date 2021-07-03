@@ -20,7 +20,7 @@ class ProductSearch extends \common\models\search\ProductSearch
     public function rules()
     {
         return [
-            [['id', 'isSale', 'isCarousel'], 'integer'],
+            [['id',], 'integer'],
             [['search', 'disablePagination'], 'safe'],
         ];
     }
@@ -46,7 +46,6 @@ class ProductSearch extends \common\models\search\ProductSearch
         ]);
 
         $query->andWhere(['product.is_active' => 1]);
-        $query->andWhere([ '>', 'product.quantity', 0]);
 
         if ($this->isCarousel=='1') {
             $query->andWhere(['product.is_on_carousel' => 1]);
@@ -70,8 +69,11 @@ class ProductSearch extends \common\models\search\ProductSearch
             } else {
                 $query->andFilterWhere(['OR',
                     ['like', 'product.name', '%' . $this->search . '%', false],
+                    ['like', 'product.name_en', '%' . $this->search . '%', false],
+                    ['like', 'product.name_de', '%' . $this->search . '%', false],
                     ['like', 'product.description', '%' . $this->search . '%', false],
-                    ['like', 'product.short_description', '%' . $this->search . '%', false],
+                    ['like', 'product.description_en', '%' . $this->search . '%', false],
+                    ['like', 'product.description_de', '%' . $this->search . '%', false],
                     ['like', 'category.name', '%' . $this->search . '%', false],
                 ]);
             }

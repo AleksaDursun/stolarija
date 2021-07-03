@@ -14,20 +14,13 @@ use Yii;
  * @property int|null $category_id
  * @property string|null $image_url
  * @property string $name
- * @property string $manufacturer
- * @property string|null $code
+ * @property string $name_en
+ * @property string $name_de
  * @property string|null $company
- * @property int $quantity
- * @property int|null $is_on_auction
  * @property int|null $is_active
- * @property string|null $short_description
- * @property float $price
- * @property float $retail_price
- * @property float $selling_price
- * @property int|null $is_used
- * @property int|null $is_on_carousel
- * @property float $sale
  * @property string|null $description
+ * @property string|null $description_en
+ * @property string|null $description_de
  * @property int|null $created_at
  * @property int|null $created_by
  * @property int|null $updated_at
@@ -39,142 +32,93 @@ use Yii;
  */
 class Product extends ActiveRecord
 {
-    const STATUS_ACTIVE = 1;
-    const STATUS_NOT_ACTIVE = 0;
+  const STATUS_ACTIVE = 1;
+  const STATUS_NOT_ACTIVE = 0;
 
 
-    const COMPANY_COMTRADE = 'COMTRADE';
-    const COMPANY_UNI_EXPERT = 'UNI_EXPERT';
-    const COMPANY_MEDIA_MARKET = 'MEDIA-MARKET';
-    const COMPANY_KIMTEC = 'KIMTEC';
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return 'product';
+  const COMPANY = 'umjetnost-u-drvetu';
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function tableName()
+  {
+    return 'product';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function rules()
+  {
+    return [
+      [['image_id', 'is_active', 'created_at', 'created_by', 'updated_at', 'updated_by', 'is_deleted', 'category_id'], 'integer'],
+      [['name'], 'required'],
+      [['description', 'company', 'description_en', 'description_de'], 'string'],
+      [['image_url', 'name', 'name_en', 'name_de'], 'string', 'max' => 255],
+      [['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => File::className(), 'targetAttribute' => ['image_id' => 'id']],
+    ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function attributeLabels()
+  {
+    return [
+      'id' => 'ID',
+      'image_id' => 'Image ID',
+      'image_url' => 'Image Url',
+      'category' => 'Kategorija',
+      'name' => 'Naziv',
+      'name_en' => 'Naziv na engleskom',
+      'name_de' => 'Naziv na njemackom',
+      'is_active' => 'Aktivan',
+      'company' => 'Lager',
+      'description' => 'Detaljan opis',
+      'description_en' => 'Detaljan opis na engleskom',
+      'description_de' => 'Detaljan opis na njemackom',
+      'created_at' => 'Created At',
+      'created_by' => 'Created By',
+      'updated_at' => 'Updated At',
+      'updated_by' => 'Updated By',
+      'is_deleted' => 'Is Deleted',
+    ];
+  }
+
+  /**
+   * Gets query for [[Image]].
+   *
+   * @return \yii\db\ActiveQuery
+   */
+  public function getImage()
+  {
+    return $this->hasOne(File::class, ['id' => 'image_id']);
+  }
+
+
+  public function getCategory()
+  {
+    return $this->hasOne(Category::class, ['id' => 'category_id']);
+  }
+
+  public function getOrderItem()
+  {
+    return $this->hasMany(OrderItem::class, ['product_id' => 'id']);
+  }
+
+  private function getNoImagUrl()
+  {
+    return \yii\helpers\Url::to('/img/no-image.png', true);
+  }
+
+  public function getImageUrl($forFrontend = false)
+  {
+    if ($this->image_id) {
+      return $this->image->getUrl($forFrontend);
+    } else {
+      return $this->image_url ? $this->image_url : $this->getNoImagUrl();
     }
+  }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['image_id', 'quantity', 'is_active', 'is_on_carousel', 'is_used', 'created_at', 'created_by', 'updated_at', 'updated_by', 'is_deleted', 'category_id'], 'integer'],
-            [['name', 'code'], 'required'],
-            [['selling_price', 'quantity'], 'sellingPriceValidator'],
-            [['price', 'retail_price', 'selling_price', 'sale'], 'number'],
-            [['description', 'short_description', 'company', 'manufacturer'], 'string'],
-            ['code', 'unique'],
-            [['image_url', 'name', 'code'], 'string', 'max' => 255],
-            [['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => File::className(), 'targetAttribute' => ['image_id' => 'id']],
-        ];
-    }
-
-    public function sellingPriceValidator($attribute, $params, $validator)
-    {
-        if ($this->company != self::COMPANY_KIMTEC && !isset($this->selling_price)) {
-            $this->addError('selling_price', 'Morate unijeti cijenu!');
-        }
-
-        if ($this->company != self::COMPANY_KIMTEC && !isset($this->quantity)) {
-            $this->addError('quantity', 'Morate unijeti kolicinu!');
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'image_id' => 'Image ID',
-            'image_url' => 'Image Url',
-            'category' => 'Kategorija',
-            'name' => 'Naziv',
-            'code' => 'Code',
-            'quantity' => 'Količina',
-            'is_on_auction' => 'Is On Auction',
-            'is_active' => 'Aktivan',
-            'short_description' => 'Kratki opis',
-            'price' => 'Cijena',
-            'company' => 'Lager',
-            'is_used' => 'Polovan',
-            'selling_price' => 'Prodajna cijena',
-            'retail_price' => 'Preporucena cijena',
-            'description' => 'Detaljan opis',
-            'created_at' => 'Created At',
-            'created_by' => 'Created By',
-            'updated_at' => 'Updated At',
-            'updated_by' => 'Updated By',
-            'is_deleted' => 'Is Deleted',
-        ];
-    }
-
-
-    public function beforeSave($insert)
-    {
-        if(!$this->price) {
-            $this->price = $this->selling_price;
-            $this->retail_price = $this->selling_price;
-        }
-
-        return parent::beforeSave($insert); // TODO: Change the autogenerated stub
-    }
-
-    /**
-     * Gets query for [[Image]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getImage()
-    {
-        return $this->hasOne(File::class, ['id' => 'image_id']);
-    }
-
-
-    public function getCategory()
-    {
-        return $this->hasOne(Category::class, ['id' => 'category_id']);
-    }
-
-    public function getOrderItem() {
-        return $this->hasMany(OrderItem::class, ['product_id' => 'id']);
-    }
-
-    public function getProductSellingPrice()
-    {
-        return $this->sale ? $this->sale : $this->selling_price;
-        //return $this->sale ? $this->selling_price*(100 - $this->sale)/100 : $this->selling_price;
-    }
-
-    private function getNoImagUrl() {
-        return \yii\helpers\Url::to('/img/no-image.png', true);
-    }
-
-    public function getImageUrl($forFrontend = false) {
-        if($this->image_id) {
-            return $this->image->getUrl($forFrontend);
-        } else {
-            return $this->image_url ? $this->image_url : $this->getNoImagUrl();
-        }
-    }
-
-    public static $racunar = '<div class = "row">
-                                    <table class="table table-responsive" >
-                                        <tbody>
-                                        <tr><td style="width: 45.5957%;">Procesor<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">Generacija<br></td><td style="width: 54.4043%;" class="fr-selected-cell"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">RAM<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">HDD/SSD:<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">Grafička:<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">Kučište:<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">DVD-RW:<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">Miš i tastatura:<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        <tr><td style="width: 45.5957%;">Garancija:<br></td><td style="width: 54.4043%;"><br></td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>';
 }

@@ -16,23 +16,14 @@ class Product extends \common\models\Product
                 return $model->getImageUrl(true);
             },
             'name',
-            'manufacturer',
+            'name_en',
+            'name_de',
             'description',
-            'quantity',
+            'description_de',
+            'description_en',
             'category' => function (Product $model) {
                 return $model->category_id ? $model->category->name : '';
             },
-            'short_description',
-            'price' => function (Product $model) {
-                return $model->selling_price;
-            },
-            'discount' => function (Product $model) {
-                return $model->sale > 0 ? true : false;
-            },
-            'discount_price' => function (Product $model) {
-                return $this->getProductSellingPrice();
-            },
-            'is_used'
         ];
     }
 }

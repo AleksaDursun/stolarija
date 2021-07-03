@@ -14,5 +14,3 @@ use omnilight\scheduling\Schedule;
 // run jobs from queue
 $schedule->command('queue/run')->everyMinute();
 
-$schedule->command('product/comtrade-update')->daily();
-

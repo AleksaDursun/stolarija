@@ -16,9 +16,8 @@ $type = Yii::$app->controller->id;
 /* @var $model common\models\Product */
 /* @var $form yii\widgets\ActiveForm */
 
-$canEdit = $model->company==Product::COMPANY_MEDIA_MARKET || $model->isNewRecord;
+$canEdit = $model->company==Product::COMPANY || $model->isNewRecord;
 
-$racunar = $this->render('form/_racunar');
 \backend\assets\ProductFormAsset::register($this);
 $this->registerJs("
     $('.part-select').click(function() {
@@ -56,90 +55,51 @@ $this->registerJs("
     <div class="row">
         <?php if($canEdit) : ?>
         <?=Html::activeHiddenInput($model, 'company', [
-                'value' => Product::COMPANY_MEDIA_MARKET
+                'value' => Product::COMPANY
         ]);?>
         <?php endif; ?>
 
 
         <div class="col-md-4">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => true])->label('Naziv') ?>
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
         </div>
+
+      <div class="col-md-4">
+        <?= $form->field($model, 'name_en')->textInput(['maxlength' => true]) ?>
+      </div>
+
+      <div class="col-md-4">
+        <?= $form->field($model, 'name_de')->textInput(['maxlength' => true]) ?>
+      </div>
 
         <div class="col-md-4">
             <?= $form->field($model, 'category_id')->widget(Select2::class,
                 Select2Helper::getProductCategoryConfig($model, 'category_id', false))->label('Kategorija') ?>
         </div>
 
-        <?php if($canEdit) : ?>
-        <div class="col-md-4">
-            <?=  $form->field($model, 'code')->textInput() ?>
-        </div>
-
-        <div class="col-md-3">
-            <?= $form->field($model, 'retail_price')->widget(MoneyInput::class)->label('Preporucena')?>
-        </div>
-
-        <div class="col-md-3">
-            <?= $form->field($model, 'price')->widget(MoneyInput::class)->label('Nabavna cijena')?>
-        </div>
-        <?php endif; ?>
-
-
-        <div class="col-md-3">
-            <?= $form->field($model, 'selling_price')->widget(MoneyInput::class)->label('Prodajna Cijena')?>
-        </div>
-
-        <div class="col-md-3">
-            <?= $form->field($model, 'sale')->widget(MoneyInput::class, [
-                'icon' => '<i class="fal fa-piggy-bank"></i>'
-            ])->label('Akcijska cijena')?>
-        </div>
-
-        <div class="col-md-3">
-            <?= $canEdit ? $form->field($model, 'quantity')->widget(MoneyInput::class, [
-                'icon' => '<i class="fal fa-calculator"></i>'
-            ])->label('Kolićina') :''?>
-        </div>
-
-
-        <div class="col-md-3">
-            <?= $canEdit ? $form->field($model, 'is_used')->checkbox()->label(false) : '' ?>
-        </div>
-
-        <div class="col-12">
-            <?= $form->field($model, 'short_description')->textarea(['rows' => 6])->label('Kratki opis') ?>
-        </div>
-
-        <div class="col-12">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input part-select" type="radio" id="inlineCheckbox1"  name="inlineRadioOptions"  value="racunar">
-                <label class="form-check-label" for="inlineCheckbox1">PC</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input part-select" type="radio" id="inlineCheckbox2"  name="inlineRadioOptions"  value="laptop">
-                <label class="form-check-label" for="inlineCheckbox2">Laptop</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input part-select" type="radio" id="inlineCheckbox3" name="inlineRadioOptions"  value="printer">
-                <label class="form-check-label" for="inlineCheckbox3">Printer</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input part-select" type="radio" id="inlineCheckbox4"  name="inlineRadioOptions"  value="monitor">
-                <label class="form-check-label" for="inlineCheckbox4">Monitor</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input part-select" type="radio" id="inlineCheckbox5"  name="inlineRadioOptions"  value="allInOne">
-                <label class="form-check-label" for="inlineCheckbox5">All in one</label>
-            </div>
-        </div>
-
         <div class="col-12">
             <?= $form->field($model, 'description')->widget(CKEditor::class, [
                 'id' => 'test',
-                'options' => ['rows' => 20],
+                'options' => ['rows' => 15],
                 'preset' => 'standard'
             ]) ?>
         </div>
+
+      <div class="col-12">
+        <?= $form->field($model, 'description_en')->widget(CKEditor::class, [
+          'id' => 'test',
+          'options' => ['rows' => 15],
+          'preset' => 'standard'
+        ]) ?>
+      </div>
+
+      <div class="col-12">
+        <?= $form->field($model, 'description_de')->widget(CKEditor::class, [
+          'id' => 'test',
+          'options' => ['rows' => 15],
+          'preset' => 'standard'
+        ]) ?>
+      </div>
 
         <div class="col-12">
             <?=$form->field($model, 'image_id')->widget(DropzoneInput::class, [
