@@ -5,7 +5,6 @@ export type ProductTags = 'nike' | 'puma' | 'lifestyle' | 'caprese';
 export type ProductColor = 'white' | 'black' | 'red' | 'green' | 'purple' | 'yellow' | 'blue' | 'gray' | 'orange' | 'pink';
 
 
-
 export class Product {
   id?: number;
   name?: string;
@@ -77,8 +76,9 @@ export class Product {
     this.state = state;
   }
 
- }
-  // Color Filter
-  export interface ColorFilter {
-    color?: ProductColor;
-  }
+}
+
+// Color Filter
+export interface ColorFilter {
+  color?: ProductColor;
+}

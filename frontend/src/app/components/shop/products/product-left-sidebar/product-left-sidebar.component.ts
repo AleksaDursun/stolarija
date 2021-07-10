@@ -67,7 +67,6 @@ export class ProductLeftSidebarComponent implements OnInit {
                     }
                     this.totalPages = parseInt(products.headers.get('X-Pagination-Page-Count'), 10);
                     if (!products.headers.get('X-Pagination-Page-Count')) {
-                        console.log(products.headers.get('X-Pagination-Page-Count'));
                         this.totalPages = Math.ceil(products.body.length / 20);
                     }
                     // this.loadMore();
@@ -75,8 +74,6 @@ export class ProductLeftSidebarComponent implements OnInit {
                     this.products = products.body.slice(0.8);
                     this.getTags(products.body);
                     this.getColors(products.body);
-                    this.getMinAndMaxPrice(products.body);
-                    this.getBrands();
                 });
                 if (params.filter) {
                     if (params.filter === 'novo') {
@@ -223,13 +220,6 @@ export class ProductLeftSidebarComponent implements OnInit {
         }
     }
 
-    // Update price filter
-    public updatePriceFilters(price: any): void {
-        this.allItems = this.products.filter((item: Product) => {
-            return item.price >= price.priceFrom && item.price <= price.priceTo;
-        });
-    }
-
     onBrandsChanged(brand): void {
         this.selectedBrand = brand;
     }
@@ -242,7 +232,6 @@ export class ProductLeftSidebarComponent implements OnInit {
                     this.products.push(...products.body.slice(0.8));
                     this.getTags(this.allItems);
                     this.getColors(this.allItems);
-                    this.getMinAndMaxPrice(this.allItems);
                     this.getBrands();
                 });
             }

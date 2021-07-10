@@ -19,10 +19,6 @@
                 <div class="product-right">
                     <div class="product-details">
                         <h2 class="mb-10">{{product.name}}</h2>
-                        <h4 class="mb-10" *ngIf="product.discount">
-                            <del>{{product.price | price:productsService?.currency:'symbol'}}</del>
-                        </h4>
-                        <h3 class="price mb-10">{{product.discount_price | price:productsService?.currency:'symbol' }}</h3>
                         <div class="discription">
                             <p class="bold">Detalji</p>
                             <p class="text-muted productDescription">{{product.short_description}}</p>

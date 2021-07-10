@@ -13,29 +13,7 @@
                                 </mat-expansion-panel-header>
                                 <app-categories></app-categories>
                             </mat-expansion-panel>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>
-                                        <span>Proizvođači</span>
-                                    </mat-panel-title>
-                                </mat-expansion-panel-header>
-
-                                <div class="brands">
-                                    <app-brands [brands]="brands" (brandChanged)="onBrandsChanged($event)"></app-brands>
-                                </div>
-                            </mat-expansion-panel>
                         </mat-accordion>
-                    </div>
-                    <div class="price-filter" fxLayout="row" fxLayoutAlign="center center">
-                        <app-price [min]="minPrice" [max]="maxPrice" *ngIf="this.minPrice && this.maxPrice"
-                                   (priceFilters)="updatePriceFilters($event)"></app-price>
-                    </div>
-                    <div class="new-used" fxLayout="row" fxLayoutAlign="center center">
-                        <mat-radio-group [formControl]="newUsedControl" name="newUsed" aria-label="Novo / Korišteno">
-                            <mat-radio-button value="false">Novo</mat-radio-button>
-                            <mat-radio-button value="true">Korišteno</mat-radio-button>
-                            <mat-radio-button value="all">Sve</mat-radio-button>
-                        </mat-radio-group>
                     </div>
                     <div class="popular-products" fxFlex.lt-md="100">
                         <app-popular-products></app-popular-products>

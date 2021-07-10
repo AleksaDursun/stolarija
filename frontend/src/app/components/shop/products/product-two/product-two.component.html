@@ -234,7 +234,6 @@
                                 <span *ngIf="contentLoaded" class="category"></span>
                                 <div *ngIf="contentLoaded" class="title-wrap" fxLayout="row" fxLayoutAlign="space-between center">
                                     <h4 [routerLink]="['/pocetna/fruit, fruit.id']">{{product.name}}</h4>
-                                    <p>{{product.price}}$/kg</p>
                                 </div>
 
                                 <div *ngIf="contentLoaded" class="stars" fxLayout="row">
@@ -257,7 +256,7 @@
                                             <mat-icon color="primary" class="mat-icon-lg mat-icon material-icons">
                                                 shopping_cart</mat-icon>
                                         </a>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="details-products">
                                     <div class="more-info" [@myAnimation]="product.state">

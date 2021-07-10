@@ -14,18 +14,6 @@
                         <h4>{{product.name}}</h4>
                     </div>
 
-                    <div *ngIf="contentLoaded" class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                        <div class="stars">
-
-                        </div>
-                        <p>{{product.discount_price | price: productService?.currency}}</p>
-                    </div>
-                    <div *ngIf="contentLoaded" class="btn-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                        <a (click)="addToCart(product)" mat-raised-button color="primary">DODAJ U KOŠARICU
-                            <mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon>
-                        </a>
-                    </div>
-
                     <div class="icons" fxLayout="column">
                         <a (click)="addToWishlist(product)">
                             <mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon>
@@ -46,4 +34,4 @@
         <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
 </div>
- 
+

@@ -12,7 +12,7 @@
             </div>
       </div>
     </button>
-    <mat-menu class="spCard-main"  #menu="matMenu"> 
+    <mat-menu class="spCard-main"  #menu="matMenu">
       <div class="spCard-dropdown">
         <div class="card-list-title" fxLayout="row" fxLayoutAlign="space-between start">
            <a [routerLink]="['/info/korpa']" routerLinkActive="router-link-active" ><p>PROVJERI KOŠARICU</p></a>
@@ -28,7 +28,6 @@
                      </div>
                     <div class="desc">
                       <p>{{item.product.name}}</p>
-                      <span>{{item.quantity}} X {{item.product.price}}</span>
                      </div>
                      <div class="close-circle">
                         <a (click)="removeItem(item)"><i class="material-icons">

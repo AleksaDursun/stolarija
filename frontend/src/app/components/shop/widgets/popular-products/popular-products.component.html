@@ -11,7 +11,6 @@
           </div>
              <div class="info align-self-center">
                <a [routerLink]="['/pocetna/proizvod', product.id]"><h5>{{product.name}}</h5></a>
-               <p class="price">{{product.discount_price | currency:productsService?.currency:'symbol'}}</p>
              </div>
           </mat-list-item>
       </mat-list>

@@ -14,12 +14,6 @@
         <div class="title-wrap">
            <h4 itemprop="name">{{product.name}}</h4>
         </div>
-        <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-            <span class="d-none" itemprop="priceCurrency" content="BAM">KM</span>
-            <span class="d-none" itemprop="price" content="1000.00">product.discount_price</span>
-         <p>{{product.discount_price | price:productsService?.currency:'symbol'}}</p>
-        <a (click)="addToCart(product)" ><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a>
-        </div>
      </div>
   </mat-card>
 </div>

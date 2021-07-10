@@ -11,14 +11,14 @@
                     <a class="product-link" [routerLink]="['/pocetna/proizvod', product.id]">
                       <img [src]="product.pictures[0].big" alt="">
                    </a>
-                   
+
                          <div class="content">
                             <mat-toolbar color="primary" class="icons" fxLayout="row" fxLayoutAlign="space-evenly center">
                                <a (click)="addToWishlist(product)" class="hvr-icon-pulse-shrink"><mat-icon class="hvr-icon mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
                                <a (click)="openProductDialog(product)" class="hvr-icon-pulse-shrink"><mat-icon class="hvr-icon">remove_red_eye</mat-icon></a>
                             </mat-toolbar>
                          </div>
-                      
+
                 </div>
                  <div class="product-info-wrapper">
                   <ngx-skeleton-loader
@@ -37,17 +37,12 @@
                        <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
                        <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
                     </div>
-                    <div *ngIf="contentLoaded" class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-                     <p>${{product.price | number : '1.2-2'}}</p>
-                    <button (click)="addToCart(product)" mat-mini-fab color="primary"><mat-icon mat-stroked-button color="primary" class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></button>
-                    </div>
-                    
                  </div>
               </mat-card>
         </div>
- 
+
     </div>
     <button mat-mini-fab class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
     <button mat-mini-fab class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button>
   </div>
- 
+
