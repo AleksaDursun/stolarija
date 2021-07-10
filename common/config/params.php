@@ -2,15 +2,15 @@
 return [
     'admin.email' => 'kuknik3@gmail.com',
 
-    'shop.site' => 'www.umjetnostudrvetu.ba',
-    'reply.email' =>  'podrska@umjetnostudrvetu.ba',//Kome odgovoriti
-    'support.email' => 'podrska@umjetnostudrvetu.ba', //KO SALJE
+    'shop.site' => 'www.umjetnostudrvetu.com',
+    'reply.email' =>  'podrska@umjetnostudrvetu.com',//Kome odgovoriti
+    'support.email' => 'podrska@umjetnostudrvetu.com', //KO SALJE
     'support.name' => 'Umjetnost u Drvetu', //KO SALJE
-    'frontPage' => 'http://umjetnostudrvetu.ba',
-    'backPage' => 'http://admin.umjetnostudrvetu.ba',
-    'contact.email' => 'podrska@umjetnostudrvetu.ba',
+    'frontPage' => 'http://umjetnostudrvetu.com',
+    'backPage' => 'http://admin.umjetnostudrvetu.com',
+    'contact.email' => 'podrska@umjetnostudrvetu.ocm',
     'user.passwordResetTokenExpire' => 3600,
-    'social.facebook' => 'https://www.facebook.com/umjetnostudrvetu.ba/',
+    'social.facebook' => 'https://www.facebook.com/umjetnostudrvetu.com/',
     'social.instagram' => 'https://www.instagram.com/umjetnostudrvetudoo/',
     'social.twitter' => '',
     'social.youtube' => '',

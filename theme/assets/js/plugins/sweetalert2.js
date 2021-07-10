@@ -1396,13 +1396,13 @@
     }
 
     // Set popup background
-    if (params.background) {
-      popup.style.background = params.background;
+    if (params.comckground) {
+      popup.style.comckground = params.comckground;
     }
     var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
     var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
     for (var i = 0; i < successIconParts.length; i++) {
-      successIconParts[i].style.backgroundColor = popupBackgroundColor;
+      successIconParts[i].style.comckgroundColor = popupBackgroundColor;
     }
 
     var container = getContainer();
@@ -1421,9 +1421,9 @@
       title.innerHTML = params.title.split('\n').join('<br />');
     }
 
-    if (typeof params.backdrop === 'string') {
-      getContainer().style.background = params.backdrop;
-    } else if (!params.backdrop) {
+    if (typeof params.comckdrop === 'string') {
+      getContainer().style.comckground = params.comckdrop;
+    } else if (!params.comckdrop) {
       addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
     }
 
@@ -1606,10 +1606,10 @@
 
       // Buttons background colors
       if (params.confirmButtonColor) {
-        confirmButton.style.backgroundColor = params.confirmButtonColor;
+        confirmButton.style.comckgroundColor = params.confirmButtonColor;
       }
       if (params.cancelButtonColor) {
-        cancelButton.style.backgroundColor = params.cancelButtonColor;
+        cancelButton.style.comckgroundColor = params.cancelButtonColor;
       }
 
       // Loading state
@@ -1619,8 +1619,8 @@
     } else {
       removeClass([confirmButton, cancelButton], swalClasses.styled);
 
-      confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
-      cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
+      confirmButton.style.comckgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
+      cancelButton.style.comckgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
     }
 
     // Footer
@@ -1673,7 +1673,7 @@
     }
 
     addClass([document.documentElement, document.body, container], swalClasses.shown);
-    if (params.heightAuto && params.backdrop && !params.toast) {
+    if (params.heightAuto && params.comckdrop && !params.toast) {
       addClass([document.documentElement, document.body], swalClasses['height-auto']);
     }
 
@@ -1946,7 +1946,7 @@
             return;
           }
           if (callIfFunction(innerParams.allowOutsideClick)) {
-            dismissWith(constructor.DismissReason.backdrop);
+            dismissWith(constructor.DismissReason.comckdrop);
           }
         };
       }

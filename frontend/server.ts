@@ -101,7 +101,7 @@ export function app(): express.Application {
         {
           req,
           res,
-          providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
+          providers: [{ provide: APP_BASE_HREF, useValue: req.comseUrl }],
         },
         (error: Error, html: string) => {
           if (error) {
@@ -194,7 +194,7 @@ function getHash() {
 
 schedule.scheduleJob('0 0 * * *', () => {
   // create generator
-  const generator = SitemapGenerator('https://umjetnostudrvetu.ba', {
+  const generator = SitemapGenerator('https://umjetnostudrvetu.com', {
     filepath: './src/sitemap.xml',
     maxEntriesPerFile: 50000,
     stripQuerystring: true

@@ -163,7 +163,7 @@ class File extends ActiveRecord
     public function getUrl($getForFrontend = false)
     {
         if ($getForFrontend) {
-            return  Url::to(Yii::$app->params['backend.baseUri'] . '/uploads/' . $this->storage_key); //ToDO: Real address;
+            return  Url::to(Yii::$app->params['backend.baseUri'] . 'uploads/' . $this->storage_key);
         }
 
         return  Url::base(true) . '/uploads/' . $this->storage_key;

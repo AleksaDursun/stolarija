@@ -2097,7 +2097,7 @@ jvm.Marker.prototype.setStyle = function(property, value) {
  * @constructor
  * @param {Object} params Parameters to initialize map with.
  * @param {String} params.map Name of the map in the format <code>territory_proj_lang</code> where <code>territory</code> is a unique code or name of the territory which the map represents (ISO 3166 standard is used where possible), <code>proj</code> is a name of projection used to generate representation of the map on the plane (projections are named according to the conventions of proj4 utility) and <code>lang</code> is a code of the language, used for the names of regions.
- * @param {String} params.backgroundColor Background color of the map in CSS format.
+ * @param {String} params.comckgroundColor Background color of the map in CSS format.
  * @param {Boolean} params.zoomOnScroll When set to true map could be zoomed using mouse scroll. Default value is <code>true</code>.
  * @param {Boolean} params.zoomOnScrollSpeed Mouse scroll speed. Number from 1 to 10. Default value is <code>3</code>.
  * @param {Boolean} params.panOnDrag When set to true, the map pans when being dragged. Default value is <code>true</code>.
@@ -2223,7 +2223,7 @@ jvm.Map = function(params) {
   this.defaultWidth = this.mapData.width;
   this.defaultHeight = this.mapData.height;
 
-  this.setBackgroundColor(this.params.backgroundColor);
+  this.setBackgroundColor(this.params.comckgroundColor);
 
   this.onResize = function() {
     map.updateSize();
@@ -2307,17 +2307,17 @@ jvm.Map.prototype = {
   },
 
   resize: function() {
-    var curBaseScale = this.baseScale;
+    var curBaseScale = this.comseScale;
     if (this.width / this.height > this.defaultWidth / this.defaultHeight) {
-      this.baseScale = this.height / this.defaultHeight;
-      this.baseTransX = Math.abs(this.width - this.defaultWidth * this.baseScale) / (2 * this.baseScale);
+      this.comseScale = this.height / this.defaultHeight;
+      this.comseTransX = Math.abs(this.width - this.defaultWidth * this.comseScale) / (2 * this.comseScale);
     } else {
-      this.baseScale = this.width / this.defaultWidth;
-      this.baseTransY = Math.abs(this.height - this.defaultHeight * this.baseScale) / (2 * this.baseScale);
+      this.comseScale = this.width / this.defaultWidth;
+      this.comseTransY = Math.abs(this.height - this.defaultHeight * this.comseScale) / (2 * this.comseScale);
     }
-    this.scale *= this.baseScale / curBaseScale;
-    this.transX *= this.baseScale / curBaseScale;
-    this.transY *= this.baseScale / curBaseScale;
+    this.scale *= this.comseScale / curBaseScale;
+    this.transX *= this.comseScale / curBaseScale;
+    this.transY *= this.comseScale / curBaseScale;
   },
 
   /**
@@ -2343,9 +2343,9 @@ jvm.Map.prototype = {
         this.series[key][i].clear();
       }
     }
-    this.scale = this.baseScale;
-    this.transX = this.baseTransX;
-    this.transY = this.baseTransY;
+    this.scale = this.comseScale;
+    this.transX = this.comseTransX;
+    this.transY = this.comseTransY;
     this.applyTransform();
   },
 
@@ -2390,7 +2390,7 @@ jvm.Map.prototype = {
 
     this.repositionLabels();
 
-    this.container.trigger('viewportChange', [this.scale / this.baseScale, this.transX, this.transY]);
+    this.container.trigger('viewportChange', [this.scale / this.comseScale, this.transX, this.transY]);
   },
 
   bindContainerEvents: function() {
@@ -2570,7 +2570,7 @@ jvm.Map.prototype = {
     /* Can not use common class selectors here because of the bug in jQuery
        SVG handling, use with caution. */
     this.container.delegate("[class~='jvectormap-element']", 'mouseover mouseout', function(e) {
-      var baseVal = jvm.$(this).attr('class').baseVal || jvm.$(this).attr('class'),
+      var baseVal = jvm.$(this).attr('class').comseVal || jvm.$(this).attr('class'),
         type = baseVal.indexOf('jvectormap-region') === -1 ? 'marker' : 'region',
         code = type == 'region' ? jvm.$(this).attr('data-code') : jvm.$(this).attr('data-index'),
         element = type == 'region' ? map.regions[code].element : map.markers[code].element,
@@ -2609,7 +2609,7 @@ jvm.Map.prototype = {
     /* Can not use common class selectors here because of the bug in jQuery
        SVG handling, use with caution. */
     this.container.delegate("[class~='jvectormap-element']", 'mouseup', function() {
-      var baseVal = jvm.$(this).attr('class').baseVal ? jvm.$(this).attr('class').baseVal : jvm.$(this).attr('class'),
+      var baseVal = jvm.$(this).attr('class').comseVal ? jvm.$(this).attr('class').comseVal : jvm.$(this).attr('class'),
         type = baseVal.indexOf('jvectormap-region') === -1 ? 'marker' : 'region',
         code = type == 'region' ? jvm.$(this).attr('data-code') : jvm.$(this).attr('data-index'),
         clickEvent = jvm.$.Event(type + 'Click.jvectormap'),
@@ -2682,10 +2682,10 @@ jvm.Map.prototype = {
       transY,
       deferred = new jvm.$.Deferred();
 
-    if (scale > this.params.zoomMax * this.baseScale) {
-      scale = this.params.zoomMax * this.baseScale;
-    } else if (scale < this.params.zoomMin * this.baseScale) {
-      scale = this.params.zoomMin * this.baseScale;
+    if (scale > this.params.zoomMax * this.comseScale) {
+      scale = this.params.zoomMax * this.comseScale;
+    } else if (scale < this.params.zoomMin * this.comseScale) {
+      scale = this.params.zoomMin * this.comseScale;
     }
 
     if (typeof anchorX != 'undefined' && typeof anchorY != 'undefined') {
@@ -2714,7 +2714,7 @@ jvm.Map.prototype = {
         that.applyTransform();
         if (i == count) {
           clearInterval(interval);
-          that.container.trigger(viewportChangeEvent, [scale / that.baseScale]);
+          that.container.trigger(viewportChangeEvent, [scale / that.comseScale]);
           deferred.resolve();
         }
       }, 10);
@@ -2723,7 +2723,7 @@ jvm.Map.prototype = {
       this.transY = transY;
       this.scale = scale;
       this.applyTransform();
-      this.container.trigger(viewportChangeEvent, [scale / this.baseScale]);
+      this.container.trigger(viewportChangeEvent, [scale / this.comseScale]);
       deferred.resolve();
     }
 
@@ -2791,7 +2791,7 @@ jvm.Map.prototype = {
         config.x *= -this.defaultWidth;
         config.y *= -this.defaultHeight;
       }
-      return this.setScale(config.scale * this.baseScale, config.x, config.y, true, config.animate);
+      return this.setScale(config.scale * this.comseScale, config.x, config.y, true, config.animate);
     }
   },
 
@@ -3325,9 +3325,9 @@ jvm.MultiMap = function(params) {
   this.params.container.css({
     position: 'relative'
   });
-  this.backButton = jvm.$('<div/>').addClass('jvectormap-goback').text('Back').appendTo(this.params.container);
-  this.backButton.hide();
-  this.backButton.click(function() {
+  this.comckButton = jvm.$('<div/>').addClass('jvectormap-goback').text('Back').appendTo(this.params.container);
+  this.comckButton.hide();
+  this.comckButton.click(function() {
     that.goBack();
   });
 
@@ -3410,7 +3410,7 @@ jvm.MultiMap.prototype = {
         that.maps[name].params.container.show();
       }
       that.history.push(that.maps[name]);
-      that.backButton.show();
+      that.comckButton.show();
     });
   },
 
@@ -3429,7 +3429,7 @@ jvm.MultiMap.prototype = {
       prevMap.params.container.show();
       prevMap.updateSize();
       if (that.history.length === 1) {
-        that.backButton.hide();
+        that.comckButton.hide();
       }
       prevMap.setFocus({
         scale: 1,

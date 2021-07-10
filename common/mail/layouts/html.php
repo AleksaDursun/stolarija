@@ -562,10 +562,10 @@ $frontendUri = Yii::$app->params['shop.site'];
                             <tr>
                                 <td style="word-wrap:break-word;font-size:0px;padding:0px;" align="center">
                                     <div style="cursor:auto;color:#b3aebb;font-family:Arial, sans-serif;font-size:12px;font-weight:400;line-height:1.3;text-align:center;">
-                                        Copyright © <?= date('Y') ?> umjetnostudrvetu.ba, sva prava zadržana.
+                                        Copyright © <?= date('Y') ?> umjetnostudrvetu.com, sva prava zadržana.
                                         <br><?= Yii::$app->params['support.email'] ?><br><br>
-                                        <a href="https://umjetnostudrvetu.ba" class="link-outside"
-                                           style="white-space: nowrap; color: inherit; text-decoration: underline; padding: 0 5px;">www.umjetnostudrvetu.ba</a>
+                                        <a href="https://umjetnostudrvetu.com" class="link-outside"
+                                           style="white-space: nowrap; color: inherit; text-decoration: underline; padding: 0 5px;">www.umjetnostudrvetu.com</a>
                                     </div>
                                 </td>
                             </tr>

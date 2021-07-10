@@ -13,8 +13,8 @@ return [
             'viewPath' => '@common/mail',
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'mail.umjetnostudrvetu.ba',
-                'username' => 'podrska@umjetnostudrvetu.ba',
+                'host' => 'mail.umjetnostudrvetu.com',
+                'username' => 'podrska@umjetnostudrvetu.com',
                 'password' => 'Mmarket123!1',
                 'port' => '587',
                 'encryption' => 'tls',

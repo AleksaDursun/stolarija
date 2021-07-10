@@ -228,7 +228,7 @@ class Order extends ActiveRecord
             ->setSubject($subject)
             ->setFrom($from)
             ->setTo($to)
-            ->setBcc('mostar@umjetnostudrvetu.ba')
+            ->setBcc('mostar@umjetnostudrvetu.com')
             ->setReplyTo($replay_to);
 
         try {
