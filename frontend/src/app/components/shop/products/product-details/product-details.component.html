@@ -21,32 +21,7 @@
                     <div class="product-right">
                         <div class="product-details">
                             <h1>{{product.name}}</h1>
-                            <p class="text-muted description">{{product.short_description}}</p>
-                        </div>
-                        <div class="py-1 mt-15">
-                            <p>
-                                <span class="text-muted fw-500">Dostupnost: </span>
-                                <span class="avalibility"
-                                      *ngIf="counter < product.quantity"><span>Na stanju</span></span>
-                                <span class="avalibility" *ngIf="!product.quantity"><span class="red">Nema zaliha</span></span>
-                                <span class="avalibility" *ngIf="counter == product.quantity"><span
-                                        class="red">Dostupno {{product.quantity}}</span></span>
-                            </p>
-                        </div>
-                        <div class="quantity">
-                            <span class="text-muted fw-500">Količina</span>
-                            <div fxLayout="row" fxLayout.xs="column" class="text-muted">
-                                <div fxLayout="row" fxLayoutAlign="center start">
-                                    <button mat-icon-button matTooltip="Remove" (click)="decrement()">
-                                        <mat-icon>remove</mat-icon>
-                                    </button>
-                                    <input type="text" name="quantity" value="{{counter}}"
-                                           class="form-control input-number">
-                                    <button mat-icon-button matTooltip="Add" (click)="increment()">
-                                        <mat-icon>add</mat-icon>
-                                    </button>
-                                </div>
-                            </div>
+                            <p class="text-muted description" [innerHTML]="product.description"></p>
                         </div>
                     </div>
                 </div>

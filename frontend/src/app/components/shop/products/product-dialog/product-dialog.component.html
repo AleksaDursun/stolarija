@@ -21,40 +21,7 @@
                         <h2 class="mb-10">{{product.name}}</h2>
                         <div class="discription">
                             <p class="bold">Detalji</p>
-                            <p class="text-muted productDescription">{{product.short_description}}</p>
-                        </div>
-                    </div>
-                    <div class="py-1 mt-15">
-                        <p>
-                            <span class="text-muted fw-500">Dostupnost: </span>
-                            <span class="avalibility" *ngIf="counter < product.quantity"><span>Na stanju</span></span>
-                            <span class="avalibility" *ngIf="!product.quantity"><span class="red">Nema zaliha</span></span>
-                            <span class="avalibility" *ngIf="counter == product.quantity"><span class="red">Dostupno {{product.quantity}}</span></span>
-                        </p>
-                    </div>
-                    <div class="" fxLayout="row" fxLayoutAlign="space-between center">
-                        <div class="quantity mt-15">
-                            <span class="text-muted fw-500">Količina</span>
-                            <div fxLayout="row" fxLayout.xs="column" class="text-muted mt-15">
-                                <div fxLayout="row" fxLayoutAlign="center start">
-                                    <button mat-icon-button matTooltip="Remove" (click)="decrement()">
-                                        <mat-icon>remove</mat-icon>
-                                    </button>
-                                    <input type="text" name="quantity" value="{{counter}}"
-                                           class="form-control input-number">
-                                    <button mat-icon-button matTooltip="Add" (click)="increment()">
-                                        <mat-icon>add</mat-icon>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="buttons mt-40">
-                            <mat-icon mat-stroked-button color="primary" (click)="addToCart(product, counter)"
-                                      class="mat-icon-lg mat-icon material-icons">shopping_cart
-                            </mat-icon>
-                            <mat-icon mat-stroked-button color="primary" (click)="buyNow()" class="hvr-icon">
-                                remove_red_eye
-                            </mat-icon>
+                            <p class="text-muted productDescription" [innerHTML]="product.description"></p>
                         </div>
                     </div>
                 </div>

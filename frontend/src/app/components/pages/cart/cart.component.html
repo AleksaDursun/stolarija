@@ -22,20 +22,6 @@
                     <div class="mat-cell"><img [src]="item.product.image_url" alt="{{item.product.name}}"></div>
                     <div class="mat-cell"><a class="product-name">{{item.product.name}}</a></div>
                     <div class="mat-cell price">{{item.product.discount_price | number : '1.2-2'}}</div>
-                    <div class="mat-cell text-muted">
-                        <div fxLayout="row" fxLayout.xs="column" class="text-muted">
-                            <div fxLayout="row" fxLayoutAlign="center start">
-                                <button mat-icon-button matTooltip="Remove" (click)="decrement(item.product)">
-                                    <mat-icon>remove</mat-icon>
-                                </button>
-                                <input type="text" name="quantity" [(ngModel)]="item.quantity" disabled
-                                       class="form-control input-number">
-                                <button mat-icon-button matTooltip="Add" (click)="increment(item.product)">
-                                    <mat-icon>add</mat-icon>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                     <div class="mat-cell total">{{item.product.discount_price * item.quantity | number : '1.2-2' }}</div>
                     <div class="mat-cell text-center">
                         <div class="p-1">
@@ -71,20 +57,6 @@
                     <img class="mw-75" [src]="item.product.image_url" alt="{{item.product.name}}">
                     <div fxLayout="column" fxLayoutAlign="space-between start">
                         <p class="font-weight-bold">{{item.product.name}}</p>
-                        <p>
-                            <span fxLayout="row" class="mobile-quantity-change"
-                                  fxLayoutAlign="center center">
-                                <button mat-icon-button matTooltip="Remove" (click)="decrement(item.product)">
-                                    <mat-icon>remove</mat-icon>
-                                </button>
-                                <input type="text" name="quantity" [(ngModel)]="item.quantity" disabled
-                                       class="form-control input-number">
-                                <button mat-icon-button matTooltip="Add" (click)="increment(item.product)">
-                                    <mat-icon>add</mat-icon>
-                                </button>
-                            </span>
-                            {{item.product.discount_price | currency: productsService?.currency: 'symbol'}}
-                        </p>
 
                         <p class="mat-cell total">
                             Ukupno: {{item.product.price * item.quantity | currency: productsService?.currency }}</p>
