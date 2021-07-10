@@ -11,10 +11,10 @@ use yii\db\ActiveQuery;
  *
  * @property int $id
  * @property string $name
- * @property string $code
+ * @property string $name_de
+ * @property string $name_en
  * @property int $parent_category_id
  * @property int|null $is_active
- * @property int|null $have_used_items
  * @property int|null $sort
  * @property int|null $created_at
  * @property int|null $created_by
@@ -28,9 +28,6 @@ use yii\db\ActiveQuery;
  */
 class Category extends ActiveRecord
 {
-
-    const HAVE_USED_ITEMS = 1;
-    const DONT_HAVE_USED_ITEMS = 0;
     /**
      * {@inheritdoc}
      */
@@ -45,11 +42,10 @@ class Category extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'code'], 'required'],
+            [['name'], 'required'],
             [['parent_category_id', 'created_at', 'created_by', 'updated_at', 'updated_by',
-                'is_deleted', 'is_active', 'have_used_items', 'sort'], 'integer'],
-            [['name', 'code'], 'string', 'max' => 255],
-            [['code'], 'unique'],
+                'is_deleted', 'is_active', 'sort'], 'integer'],
+            [['name', 'name_en', 'name_de'], 'string', 'max' => 255],
         ];
     }
 
@@ -60,10 +56,9 @@ class Category extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'code' => 'Code',
-            'have_used_items' => 'Posjeduje polovne uređaje?',
-            'is_active' => 'Aktivan',
+            'name' => 'Ime',
+            'name_en' => 'Ime na engleskom',
+            'name_de' => 'Ime na njemackom',
             'parent_category_id' => 'Parent Category ID',
             'created_at' => 'Created At',
             'created_by' => 'Created By',
@@ -122,7 +117,6 @@ class Category extends ActiveRecord
             $childs[] = [
                 'id' => $child->id,
                 'name' => $child->name,
-                'have_used_items' => $child->have_used_items
             ];
         }
 

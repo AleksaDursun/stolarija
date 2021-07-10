@@ -32,18 +32,18 @@ $excludeIds = ArrayHelper::merge($excludeIds, $model->getCategoriesWithoutParent
             <?= $form->field($model, 'name')->textInput() ?>
         </div>
 
-        <div class="col-12 col-lg-4">
-            <?= $model->isNewRecord ? $form->field($model, 'code')->textInput() : $form->field($model, 'code')->textInput()->hiddenInput() ?>
-        </div>
+      <div class="col-12 col-lg-6">
+        <?= $form->field($model, 'name_en')->textInput() ?>
+      </div>
 
-        <div class="col-12 col-lg-4">
+      <div class="col-12 col-lg-6">
+        <?= $form->field($model, 'name_de')->textInput() ?>
+      </div>
+
+      <div class="col-12 col-lg-4">
             <?= $form->field($model, 'sort')->textInput([
                     'type' => 'number'
                 ])?>
-        </div>
-
-        <div class="col-12 col-lg-4">
-            <?= $form->field($model, 'have_used_items')->checkbox()->label(false) ?>
         </div>
 
         <div class="col-12 col-lg-6">

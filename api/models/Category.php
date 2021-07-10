@@ -15,7 +15,8 @@ class Category extends \common\models\Category
         return [
             'id',
             'name',
-            'have_used_items',
+            'name_en',
+            'name_de',
             'sub_category' => function (Category $model) {
                 return $model->getRecursiveChildrenArray();
             }
